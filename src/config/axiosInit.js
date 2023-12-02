@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create ({
-    baseURL: import.meta.env.Apex_Gym
+    baseURL: process.env.REACT_APP_Apex_Gym
 });
 
 export default instance;

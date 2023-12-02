@@ -9,7 +9,7 @@ const Login = ({ setLoggedUser }) => {
   const [inputs, setInputs] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const URL = import.meta.env.Apex_Gym;
+  const URL = process.env.REACT_APP_Apex_Gym_users;
 
   const handleChange = (event) => {
     const name = event.target.name;

@@ -15,7 +15,7 @@ import {
 import Swal from "sweetalert2";
 import { STATUS } from "../../../constants";
 
-const ServiceEdit = () => {
+const ServiceEdit = ({getApi}) => {
   const [service, setService] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
@@ -180,3 +180,5 @@ const ServiceEdit = () => {
     </div>
   );
 };
+
+export default ServiceEdit;

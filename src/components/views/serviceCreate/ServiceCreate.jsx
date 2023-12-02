@@ -1,24 +1,26 @@
 import { Alert, Container, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { validateNameService, validateNameTeacher, validateDate, validateTime, validateImage, validateDescription, validatePlaneType, validatePrice } from '../../../helpers/validateFields';
-import { useNavigator } from 'react-router-dom';
 import { STATUS } from '../../../constants';
 import Swal from 'sweetalert2';
 import axios from '../../../config/axiosInit';
 
 const ServiceCreate = ({ URL, getApi }) => {
-    const navigate = useNavigator();
+    const navigate = useNavigate();
     const [inputs, setInputs] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
     const [show, setShow] = useState(false);
 
     const handleChange = (event) => {
         const { value, name } = event.target;
-        setInputs((prevValues) => ({...prevValues, [name] = value}))
+        setInputs((prevValues) => ({...prevValues, [name]: value}))
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(inputs.date);
+        console.log(inputs.time);
         if (
           !validateNameService(inputs.nameService) ||
           !validateNameTeacher(inputs.nameTeacher) ||
@@ -53,11 +55,11 @@ const ServiceCreate = ({ URL, getApi }) => {
             cancelButtonColor: '#d33',
             confirmButtonText: '¡Si, Crear!',
         }).then(async (result) => {
-            if (result.isconfirmed){
+            if (result.isConfirmed){
                 try {
                     const res = await axios.post(URL, newService,{
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
                             'x-access-token': JSON.parse(localStorage.getItem('user-token')).token,
                         },
                     });

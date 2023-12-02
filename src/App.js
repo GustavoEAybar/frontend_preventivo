@@ -4,6 +4,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "./config/axiosInit";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
+import Navigation from "./components/layout/Navigations";
 import Home from "./components/views/Home/Home.jsx";
 import Error404 from "./components/views/error404/Error404.jsx";
 import ServicesTable from "./components/views/serviceTable/ServicesTable.jsx";
@@ -12,13 +13,12 @@ import ServiceEdit from "./components/views/serviceEdit/ServiceEdit.jsx";
 import ServiceDetails from "./components/views/serviceDetails/ServiceDetails.jsx";
 import Login from "./components/views/login/Login.jsx";
 import Register from "./components/views/register/register.jsx";
-import Navigation from "./components/layout/Navigations";
 import Footer from "./components/layout/Footer";
 
 function App() {
   const [services, setServices] = useState([]);
   const [loggedUser, setLoggedUser] = useState([]);
-  const URL = import.meta.env.Apex_Gym;
+  const URL = process.env.REACT_APP_Apex_Gym_servies;
 
   useEffect(() => {
     getApi();

@@ -4,7 +4,7 @@ import { STATUS } from "../../../../constants";
 import axios from "../../../../config/axiosInit";
 
 const Service = ({ service, getApi }) => {
-  const URL = import.meta.env.Apex_Gym;
+  const URL = process.env.REACT_APP_Apex_Gym_servies;
   const handleDelete = (id) => {
     Swal.fire({
       title: "¿Estas seguro?",
