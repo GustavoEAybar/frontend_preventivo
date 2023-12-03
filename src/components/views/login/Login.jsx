@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, Container, Form } from "react-bootstrap";
+import { Alert, Button, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { STATUS } from "../../../constants/index";
 import Swal from "sweetalert2";
@@ -66,14 +66,20 @@ const Login = ({ setLoggedUser }) => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
+          <div className="d-flex justify-content-between">
           <Link
             to="/users/register"
-            className="btn btn-primary text-decoration-none"
+            className="btn btn-dark text-decoration-none w-50 mt-auto m-3"
           >
-            ¿No tienes cuenta? Registrate
+            <strong>Registrate</strong>
           </Link>
-          <div className="text-venter">
-            <button className="btn-primary">Enviar</button>
+          <Button
+            variant="dark"
+            className="text-white w-50 mt-auto m-3"
+            type="submit"
+          >
+            <strong>Enviar</strong>
+          </Button>
           </div>
         </Form>
         {error ? (

@@ -20,8 +20,8 @@ const Navigations = ({ loggedUser, setLoggedUser}) => {
               <Nav.Link className='nav-link' to='/'>Home</Nav.Link>
               {loggedUser?.token ? (
                 <>
-                  <Button className='border border-3 border-white rounded m-1 p-1' onClick={logout}>Cerrar sesion</Button>
                   <Link className='nav-link' to='/service/table'>Servicios</Link>
+                  <Button className='border border-3 border-white rounded m-1 p-1' onClick={logout}>Cerrar sesion</Button>
                 </>
               ) : (
                 <Link className='nav-link' to='/users/login'>
