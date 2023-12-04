@@ -8,7 +8,7 @@ const ServicesTable = ({ services, getApi }) => {
       <Container className="py-5">
         <div className="d-flex align--items-center justify-content-between">
           <h1>Lista de servicios</h1>
-          <Link to="/service/create" className="btn btn-primary">
+          <Link to="/services/create" className="btn btn-primary">
             Crear servicio
           </Link>
         </div>

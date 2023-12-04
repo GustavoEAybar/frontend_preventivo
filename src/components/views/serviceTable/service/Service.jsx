@@ -49,13 +49,13 @@ const Service = ({ service, getApi }) => {
         <td>{service?.time}</td>
         <td>
             <p className="truncate-img-link m-0">{service?.image}</p></td>
-        <td>{service?.planeType}</td>
+        <td>{service?.planType}</td>
         <td>{service?.description}</td>
         <td>$ {service?.price}</td>
         <td className="w-25">
             <div className="d-flex justify-content-center">
                 <Link
-                to={`/service/edit/${service?._id}`}
+                to={`/services/edit/${service?._id}`}
                 className='btn-primary mx-1 text-decoration-none text-center'>Actualizar</Link>
                 <button onClick={() => handleDelete(service?._id)} className='btn-danger mx-1 text-decoration-none text-center'>Eliminar</button>
             </div>

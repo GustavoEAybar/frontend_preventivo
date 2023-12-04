@@ -22,6 +22,7 @@ function App() {
 
   useEffect(() => {
     getApi();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getApi = async () => {
@@ -46,26 +47,26 @@ function App() {
                 <Routes>
                   <Route
                     exact
-                    path="/service/table"
+                    path="/services/table"
                     element={
                       <ServicesTable services={services} getApi={getApi} />
                     }
                   />
                   <Route
                     exact
-                    path="/service/create"
+                    path="/services/create"
                     element={<ServiceCreate URL={URL} getApi={getApi} />}
                   />
                   <Route
                     exact
-                    path="/service/edit/:id"
+                    path="/services/edit/:id"
                     element={<ServiceEdit getApi={getApi} />}
                   />
                 </Routes>
               </ProtectedRoute>
             }
           />
-          <Route exact path="/service/buy/:id" element={<ServiceDetails />} />
+          <Route exact path="/services/buy/:id" element={<ServiceDetails />} />
           <Route
             exact
             path="/users/login/"

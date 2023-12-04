@@ -42,7 +42,7 @@ const Register = ({ setLoggedUser }) => {
         console.log(data);
         localStorage.setItem("user-token", JSON.stringify(data));
         setLoggedUser(data);
-        navigate("/service/table");
+        navigate("/services/table");
       }
     } catch (error) {
       console.log(error);

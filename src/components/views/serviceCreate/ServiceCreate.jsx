@@ -8,7 +8,7 @@ import {
   validateTime,
   validateImage,
   validateDescription,
-  validatePlaneType,
+  validatePlanType,
   validatePrice,
 } from "../../../helpers/validateFields";
 import { STATUS } from "../../../constants";
@@ -28,15 +28,13 @@ const ServiceCreate = ({ URL, getApi }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs.date);
-    console.log(inputs.time);
     if (
       !validateNameService(inputs.nameService) ||
       !validateNameTeacher(inputs.nameTeacher) ||
       !validateDate(inputs.date) ||
       !validateTime(inputs.time) ||
       !validateImage(inputs.image) ||
-      !validatePlaneType(inputs.planeType) ||
+      !validatePlanType(inputs.planType) ||
       !validateDescription(inputs.description) ||
       !validatePrice(inputs.price)
     ) {
@@ -50,7 +48,7 @@ const ServiceCreate = ({ URL, getApi }) => {
       date: inputs.date,
       time: inputs.time,
       image: inputs.image,
-      planeType: inputs.planeType,
+      planType: inputs.planType,
       description: inputs.description,
       price: inputs.price,
     };
@@ -99,27 +97,35 @@ const ServiceCreate = ({ URL, getApi }) => {
             <Form.Label>Nombre del servicio</Form.Label>
             <Form.Control
               type="string"
+              maxLength={50}
+              minLength={5}
               placeholder="Nombre del servicio"
               name="nameService"
               onChange={handleChange}
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicNameTeacher">
             <Form.Label>Nombre del profesor</Form.Label>
             <Form.Control
               type="string"
+              maxLength={50}
+              minLength={5}
               placeholder="Nombre del profesor"
               name="nameTeacher"
               onChange={handleChange}
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Label>dias</Form.Label>
+            <Form.Label>Dias</Form.Label>
             <Form.Select
               type="text"
+              maxLength={100}
               name="date"
               onChange={handleChange}
               value={inputs.date || ""}
+              required
             >
               <option>full</option>
               <option>lunes, miercoles y viernes</option>
@@ -130,9 +136,11 @@ const ServiceCreate = ({ URL, getApi }) => {
             <Form.Label>Horario</Form.Label>
             <Form.Select
               type="text"
+              maxLength={100}
               name="time"
               onChange={handleChange}
               value={inputs.time || ""}
+              required
             >
               <option>full</option>
               <option>de 8:00 a 9:00</option>
@@ -144,22 +152,26 @@ const ServiceCreate = ({ URL, getApi }) => {
               <option>de 19:00 a 20:00</option>
             </Form.Select>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicImage">
             <Form.Label>Imagen</Form.Label>
             <Form.Control
               type="string"
               placeholder="Imagen"
               name="image"
+              maxLength={500}
               onChange={handleChange}
+              required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPlaneType">
+          <Form.Group className="mb-3" controlId="formBasicPlanType">
             <Form.Label>Tipo de plan</Form.Label>
             <Form.Select
               type="text"
-              name="planeType"
+              maxLength={100}
+              name="planType"
               onChange={handleChange}
-              value={inputs.planeType || ""}
+              value={inputs.planType || ""}
+              required
             >
               <option>Clase</option>
               <option>Solo musculacion</option>
@@ -184,7 +196,7 @@ const ServiceCreate = ({ URL, getApi }) => {
             />
           </Form.Group>          
           <Form.Group className="mb-3" controlId="formBasicPrice">
-            <Form.Label>Precio $</Form.Label>
+            <Form.Label>Precio</Form.Label>
             <Form.Control
               type="number"
               placeholder="45000"
