@@ -74,7 +74,7 @@ const ServiceCreate = ({ URL, getApi }) => {
           if (res.status === STATUS.STATUS_CREATED) {
             Swal.fire("¡Creado!", "El servicio ha sido creado.", "success");
             getApi();
-            navigate("/service/table");
+            navigate("/services/table");
           }
         } catch (error) {
           error.response.data?.message &&
@@ -98,7 +98,7 @@ const ServiceCreate = ({ URL, getApi }) => {
             <Form.Control
               type="string"
               maxLength={50}
-              minLength={5}
+              minLength={1}
               placeholder="Nombre del servicio"
               name="nameService"
               onChange={handleChange}

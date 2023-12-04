@@ -1,9 +1,7 @@
 const regExpNameService = /^[A-Za-z\s?]+$/;
 const regExpNameTeacher = /^[A-Za-z\s?]+$/;
 const regExpDate = /^(lunes|martes|miercoles|jueves|viernes|sabado|domingo)(, (lunes|martes|miercoles|jueves|viernes|sabado|domingo)){0,2}|full$/;
-const regExpTime = /^de (\d{1,2}:\d{2}) a (\d{1,2}:\d{2}|full)$/;
-// const regExpDate = /^\d{4}\-(0?[1-9]|1[0-2])\-(0?[1-9]|[12][0-9]|3[01])$/;
-// const regExpTime = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+const regExpTime = /^de (\d{1,2}:\d{2}) a (\d{1,2}:\d{2})|full$/;
 const regExpImage = /^((http|https):\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/;
 const regExpPlanType = /^[A-Za-z\-\s?]+$/;
 const regExpDescription = /^.{1,500}$/;

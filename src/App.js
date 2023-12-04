@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -22,7 +23,6 @@ function App() {
 
   useEffect(() => {
     getApi();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getApi = async () => {
