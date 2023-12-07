@@ -8,7 +8,7 @@ const UsersTable = ({ users, getApi }) => {
       <Container className="py-5">
         <div className="d-flex align--items-center justify-content-between">
           <h1>Lista de usuarios</h1>
-          <Link to="/users/create" className="btn btn-primary">
+          <Link to="/users/register" className="btn btn-primary">
             Crear usuario
           </Link>
         </div>

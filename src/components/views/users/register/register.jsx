@@ -32,10 +32,11 @@ const Register = ({ setLoggedUser }) => {
       roll: inputs.roll,
     };
 
+    console.log(inputs.contractedPlan);
     try {
-      const res = await axios.post(`${URL}/register`, newUser);
+      const res = await axios.post(`${URL}/users/register`, newUser);
       console.log(res);
-      if (res.status === STATUS.STATUS_CREATED) {
+      if (res.status === STATUS.CREATED) {
         Swal.fire(
           "Registrado!",
           "Su usuario a iniciado sesion con exito",
@@ -148,7 +149,7 @@ const Register = ({ setLoggedUser }) => {
               maxLength={100}
               name="contractedPlan"
               required
-              value={inputs.contractedPlan||""}
+              value={inputs.contractedPlan || ""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
