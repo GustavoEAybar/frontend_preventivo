@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 const ServiceDetails = () => {
     const [service, setService] = useState({});
     const { id } = useParams();
+    const URL = process.env.REACT_APP_Apex_Gym_servies;
     
     useEffect(() => {
         getServisById();
@@ -45,7 +46,7 @@ const ServiceDetails = () => {
                         <div>
                             <Link 
                             to='/services/confirm'
-                            className='btn-primary mx-1 text-decoration-none text-center'>Comprar</Link>
+                            className='btn btn-primary mx-1 text-decoration-none text-center'>Comprar</Link>
                         </div>
                     </Card.Body>
                 </Card>

@@ -5,9 +5,21 @@ const Footer = () => {
   return <div className="bg-dark">
     <Container className="text-light">
       <Row>
-        <Col>datos del gimnacio</Col>
-        <Col>Aqui iria el logo</Col>
-        <Col>contactos</Col>
+        <Col>
+          <div>
+
+          </div>
+        </Col>
+        <Col>
+          <figure>
+            <image src='./imagenes/ApexGym.jpeg'/>
+          </figure>
+        </Col>
+        <Col>
+          <div>
+            
+          </div>
+        </Col>
       </Row>
       <Row>
         <Col className="text-center">Aqui irian logos de marcas chiquitos</Col>

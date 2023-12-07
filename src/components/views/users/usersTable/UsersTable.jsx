@@ -1,0 +1,46 @@
+import { Container, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import User from "./User/User";
+
+const UsersTable = ({ users, getApi }) => {
+  return (
+    <div>
+      <Container className="py-5">
+        <div className="d-flex align--items-center justify-content-between">
+          <h1>Lista de usuarios</h1>
+          <Link to="/users/create" className="btn btn-primary">
+            Crear usuario
+          </Link>
+        </div>
+        <hr />
+        {users?.length !== 0 ? (
+          <Table bordered hover responsive className="align-middle mt-3">
+            <thead>
+              <tr>
+                <th>N.</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Clave</th>
+                <th>Roll</th>
+                <th>Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <User key={user?._id} user={user} getApi={getApi} />
+              ))}
+            </tbody>
+          </Table>
+        ) : (
+          <div className="no-users-found d-flex align-items-center justify-content-center">
+            <h1>🏋️‍♀️ No se encontraron usuarios🏋️‍♀️</h1>
+          </div>
+        )}
+      </Container>
+    </div>
+  );
+};
+
+export default UsersTable;

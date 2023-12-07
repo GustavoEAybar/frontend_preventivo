@@ -10,10 +10,10 @@ import {
   validateDescription,
   validatePlanType,
   validatePrice,
-} from "../../../helpers/validateFields";
-import { STATUS } from "../../../constants";
+} from "../../../../helpers/validateFields";
+import { STATUS } from "../../../../constants";
 import Swal from "sweetalert2";
-import axios from "../../../config/axiosInit";
+import axios from "../../../../config/axiosInit";
 
 const ServiceCreate = ({ URL, getApi }) => {
   const navigate = useNavigate();

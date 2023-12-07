@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { STATUS } from "../../../constants/index";
+import { STATUS } from "../../../../constants/index";
 import Swal from "sweetalert2";
-import axios from "../../../config/axiosInit";
+import axios from "../../../../config/axiosInit";
 
 const Login = ({ setLoggedUser }) => {
   const [inputs, setInputs] = useState({});
@@ -67,19 +67,19 @@ const Login = ({ setLoggedUser }) => {
             />
           </Form.Group>
           <div className="d-flex justify-content-between">
-          <Link
-            to="/users/register"
-            className="btn btn-dark text-decoration-none w-50 mt-auto m-3"
-          >
-            <strong>Registrate</strong>
-          </Link>
-          <Button
-            variant="dark"
-            className="text-white w-50 mt-auto m-3"
-            type="submit"
-          >
-            <strong>Enviar</strong>
-          </Button>
+            <Link
+              to="/users/register"
+              className="btn btn-dark text-decoration-none w-50 mt-auto m-3"
+            >
+              <strong>Registrate</strong>
+            </Link>
+            <Button
+              variant="dark"
+              className="text-white w-50 mt-auto m-3"
+              type="submit"
+            >
+              <strong>Enviar</strong>
+            </Button>
           </div>
         </Form>
         {error ? (

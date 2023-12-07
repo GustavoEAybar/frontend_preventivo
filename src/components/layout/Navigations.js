@@ -17,10 +17,12 @@ const Navigations = ({ loggedUser, setLoggedUser}) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto color-nav">
-              <Nav.Link className='nav-link' to='/'>Home</Nav.Link>
+              <Link className='nav-link' to='/'>Home</Link>
               {loggedUser?.token ? (
                 <>
                   <Link className='nav-link' to='/services/table'>Servicios</Link>
+                  <Link className='nav-link' to='/products/table'>Productos</Link>
+                  <Link className='nav-link' to='/users/table'>Usuarios</Link>
                   <Button className='border border-3 border-white rounded m-1 p-1' onClick={logout}>Cerrar sesion</Button>
                 </>
               ) : (

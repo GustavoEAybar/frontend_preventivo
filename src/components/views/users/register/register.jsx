@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { STATUS } from "../../../constants/index";
+import { STATUS } from "../../../../constants/index";
 import Swal from "sweetalert2";
-import axios from "../../../config/axiosInit";
+import axios from "../../../../config/axiosInit";
 
 const Register = ({ setLoggedUser }) => {
   const [inputs, setInputs] = useState({});
