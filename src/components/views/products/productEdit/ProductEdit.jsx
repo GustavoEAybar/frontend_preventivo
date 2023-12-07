@@ -4,30 +4,32 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "../../../../config/axiosInit";
 import { useEffect, useRef, useState } from "react";
 import {
-  validateNameService,
-  validateNameTeacher,
-  validateDate,
-  validateTime,
+  validateNameProduct,
   validateImage,
-  validatePlanType,
+  validateCategory,
+  validateType,
+  validateSize,
+  validateWeight,
   validateDescription,
+  validateStock,
   validatePrice,
-} from "../../../../helpers/validateFields";
+} from "../../../../helpers/validateProducts";
 import Swal from "sweetalert2";
 import { STATUS } from "../../../../constants";
 
-const ServiceEdit = ({ getApi }) => {
-  const [service, setService] = useState({});
+const ProductEdit = ({ getApi }) => {
+  const [product, setProduct] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
   const URL = process.env.REACT_APP_Apex_Gym;
-  const nameServiceRef = useRef(null);
-  const nameTeacherRef = useRef(null);
-  const dateRef = useRef(null);
-  const timeRef = useRef(null);
+  const nameProductRef = useRef(null);
   const imageRef = useRef(null);
-  const planTypeRef = useRef(null);
+  const categoryRef = useRef(null);
+  const typeRef = useRef(null);
+  const sizeRef = useRef(null);
+  const weightRef = useRef(null);
   const descriptionRef = useRef(null);
+  const stockRef = useRef(null);
   const priceRef = useRef(null);
 
   useEffect(() => {
@@ -36,36 +38,38 @@ const ServiceEdit = ({ getApi }) => {
 
   const getOne = async () => {
     try {
-      const res = await axios.get(`${URL}/${id}`);
-      const serviceApi = res.data;
-      setService(serviceApi);
+      const res = await axios.get(`${URL}/products/${id}`);
+      const productApi = res.data;
+      setProduct(productApi);
     } catch {}
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      !validateNameService(nameServiceRef.current.value) ||
-      !validateNameTeacher(nameTeacherRef.current.value) ||
-      !validateDate(dateRef.current.value) ||
-      !validateTime(timeRef.current.value) ||
+      !validateNameProduct(nameProductRef.current.value) ||
       !validateImage(imageRef.current.value) ||
-      !validatePlanType(planTypeRef.current.value) ||
+      !validateCategory(categoryRef.current.value) ||
+      !validateType(typeRef.current.value) ||
+      !validateSize(sizeRef.current.value) ||
+      !validateWeight(weightRef.current.value) ||
       !validateDescription(descriptionRef.current.value) ||
+      !validateStock(stockRef.current.value) ||
       !validatePrice(priceRef.current.value)
     ) {
       Swal.fire("Ooop!!", "Algun dato es invalido", "Error");
       return;
     }
 
-    const serviceUpdate = {
-      nameService: nameServiceRef.current.value,
-      nameTeacher: nameTeacherRef.current.value,
-      date: dateRef.current.value,
-      time: timeRef.current.value,
+    const productUpdate = {
+      nameProduct: nameProductRef.current.value,
       image: imageRef.current.value,
-      planType: planTypeRef.current.value,
+      category: categoryRef.current.value,
+      type: typeRef.current.value,
+      size: sizeRef.current.value,
+      weight: weightRef.current.value,
       description: descriptionRef.current.value,
+      stock: stockRef.current.value,
       price: priceRef.current.value,
     };
 
@@ -80,21 +84,21 @@ const ServiceEdit = ({ getApi }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.put(`${URL}/${id}`, serviceUpdate, {
+          const res = await axios.put(`${URL}/products/${id}`, productUpdate, {
             headers: {
               "Content-Type": "application/json",
               "x-access-token": JSON.parse(localStorage.getItem("user-token"))
                 .token,
             },
           });
-          if (res.status === STATUS.STATUS_OK) {
+          if (res.status === STATUS.OK) {
             Swal.fire(
               "¡Actualizado!",
               "El servicio ha sido actualizado.",
               "success"
             );
             getApi();
-            navigate("/services/table");
+            navigate("/products/table");
           }
         } catch (error) {}
       }
@@ -104,55 +108,20 @@ const ServiceEdit = ({ getApi }) => {
   return (
     <div>
       <Container className="py-5">
-        <h1>Editar servicio</h1>
+        <h1>Editar producto</h1>
         <hr />
         <Form className="my-5" onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicNameService">
-            <Form.Label>Nombre del servicio</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicNameProduct">
+            <Form.Label>Nombre del producto</Form.Label>
             <Form.Control
               type="string"
-              placeholder="Nombre del servicio"
-              maxLength={50}
-              minLength={5}
-              defaultValue={service.nameService}
-              ref={nameServiceRef}
+              placeholder="Nombre del producto"
+              maxLength={100}
+              minLength={4}
+              defaultValue={product.nameProduct}
+              ref={nameProductRef}
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicNameTeacher">
-            <Form.Label>Nombre del profesor</Form.Label>
-            <Form.Control
-              type="string"
-              maxLength={50}
-              minLength={5}
-              placeholder="Nombre del profesor"
-              defaultValue={service.nameTeacher}
-              ref={nameTeacherRef}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Label>Dias</Form.Label>
-            <Form.Select type="text" maxLength={100} ref={dateRef} required>
-              <option>{service.date}</option>
-              <option>full</option>
-              <option>lunes, miercoles y viernes</option>
-              <option>martes, jueves y sabado</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicTime">
-            <Form.Label>Horario</Form.Label>
-            <Form.Select type="text" maxLength={100} ref={timeRef} required>
-              <option>{service.time}</option>
-              <option>full</option>
-              <option>de 8:00 a 9:00</option>
-              <option>de 9:00 a 10:00</option>
-              <option>de 10:00 a 11:00</option>
-              <option>de 11:00 a 12:00</option>
-              <option>de 17:00 a 18:00</option>
-              <option>de 18:00 a 19:00</option>
-              <option>de 19:00 a 20:00</option>
-            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicImage">
             <Form.Label>Imagen</Form.Label>
@@ -161,26 +130,61 @@ const ServiceEdit = ({ getApi }) => {
               placeholder="Imagen"
               maxLength={200}
               minLength={1}
-              defaultValue={service.image}
+              defaultValue={product.image}
               ref={imageRef}
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPlanType">
-            <Form.Label>Tipo de plan</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicCategory">
+            <Form.Label>Categoria</Form.Label>
             <Form.Select
               type="string"
               maxLength={50}
-              ref={planTypeRef}
+              minLength={5}
+              ref={categoryRef}
               required
             >
-              <option>{service.planType}</option>
-              <option>Full</option>
-              <option>Clase</option>
-              <option>Solo musculacion</option>
+              <option>{product.category}</option>
+              <option>indumentaria deportiva</option>
+              <option>bebidas</option>
             </Form.Select>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicType">
+            <Form.Label>Tipo</Form.Label>
+            <Form.Control
+              type="string"
+              maxLength={50}
+              minLength={1}
+              defaultValue={product.type}
+              ref={typeRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicSize">
+            <Form.Label>Talle</Form.Label>
+            <Form.Control
+              type="string"
+              maxLength={50}
+              minLength={0}
+              defaultValue={product.size}
+              ref={sizeRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicWeight">
+            <Form.Label>Peso</Form.Label>
+            <Form.Control
+              type="number"
+              maxLength={5}
+              minLength={0}
+              max={10000}
+              min={0}
+              defaultValue={product.weight}
+              ref={weightRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicDescription">
             <Form.Label>Descripcion</Form.Label>
             <Form.Control
               type="string"
@@ -188,12 +192,26 @@ const ServiceEdit = ({ getApi }) => {
               rows={3}
               minLength={1}
               maxLength={500}
-              defaultValue={service.description}
+              defaultValue={product.description}
               ref={descriptionRef}
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicStock">
+            <Form.Label>Unidades</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="50000"
+              minLength={1}
+              maxLength={3}
+              min={0}
+              max={999}
+              defaultValue={product.stock}
+              ref={stockRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPrice">
             <Form.Label>Precio</Form.Label>
             <Form.Control
               type="number"
@@ -202,7 +220,7 @@ const ServiceEdit = ({ getApi }) => {
               maxLength={10}
               min={0}
               max={999999}
-              defaultValue={service.price}
+              defaultValue={product.price}
               ref={priceRef}
               required
             />
@@ -216,4 +234,4 @@ const ServiceEdit = ({ getApi }) => {
   );
 };
 
-export default ServiceEdit;
+export default ProductEdit;

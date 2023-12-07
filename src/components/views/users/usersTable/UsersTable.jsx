@@ -18,11 +18,14 @@ const UsersTable = ({ users, getApi }) => {
             <thead>
               <tr>
                 <th>N.</th>
+                <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>Telefono</th>
                 <th>Clave</th>
+                <th>Clases</th>
+                <th>Planes contratado</th>
                 <th>Roll</th>
                 <th>Accion</th>
               </tr>

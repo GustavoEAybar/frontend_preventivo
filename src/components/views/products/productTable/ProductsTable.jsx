@@ -1,43 +1,44 @@
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Service from "./product/Product";
+import Product from "./product/Product";
 
-const ServicesTable = ({ services, getApi }) => {
+const ProductsTable = ({ products, getApi }) => {
   return (
     <div>
       <Container className="py-5">
         <div className="d-flex align--items-center justify-content-between">
-          <h1>Lista de servicios</h1>
-          <Link to="/services/create" className="btn btn-primary">
-            Crear servicio
+          <h1>Lista de productos</h1>
+          <Link to="/productos/create" className="btn btn-primary">
+            Crear producto
           </Link>
         </div>
         <hr />
-        {services?.length !== 0 ? (
+        {products?.length !== 0 ? (
           <Table bordered hover responsive className="align-middle mt-3">
             <thead>
               <tr>
                 <th>N.</th>
                 <th>Nombre</th>
-                <th>Profesor</th>
-                <th>Dias</th>
-                <th>Horario</th>
                 <th>Imagen</th>
-                <th>Tipo de plan</th>
+                <th>Categoria</th>
+                <th>Tipo</th>
+                <th>Talle</th>
+                <th>Contenido</th>
                 <th>Descripcion</th>
+                <th>Unidades</th>
                 <th>Precio</th>
                 <th>Accion</th>
               </tr>
             </thead>
             <tbody>
-              {services.map((service) => (
-                <Service key={service?._id} service={service} getApi={getApi} />
+              {products.map((product) => (
+                <Product key={product?._id} product={product} getApi={getApi} />
               ))}
             </tbody>
           </Table>
         ) : (
-          <div className="no-services-found d-flex align-items-center justify-content-center">
-            <h1>🏋️‍♀️ No se encontraron servicios🏋️‍♀️</h1>
+          <div className="no-products-found d-flex align-items-center justify-content-center">
+            <h1>🏋️‍♀️ No se encontraron productos 🏋️‍♀️</h1>
           </div>
         )}
       </Container>
@@ -45,4 +46,4 @@ const ServicesTable = ({ services, getApi }) => {
   );
 };
 
-export default ServicesTable;
+export default ProductsTable;

@@ -11,7 +11,7 @@ import {
   validateDescription,
   validatePlanType,
   validatePrice,
-} from "../../../../helpers/validateFields";
+} from "../../../../helpers/validateServices";
 import { STATUS } from "../../../../constants";
 import axios from "../../../../config/axiosInit";
 

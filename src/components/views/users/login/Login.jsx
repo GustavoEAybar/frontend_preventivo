@@ -50,17 +50,17 @@ const Login = ({ setLoggedUser }) => {
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Email"
+              placeholder="usuario_prueba@gmail.com"
               name="email"
               value={inputs.email || ""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Contraseña</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="********"
               name="password"
               value={inputs.password || ""}
               onChange={(e) => handleChange(e)}

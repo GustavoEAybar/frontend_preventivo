@@ -8,7 +8,17 @@ import CardUser from "../users/cardUser/CardUser";
 
 const Home = ({ information, getApi }) => {
 
-  const [cardInf, setCardInf] = useState(<CardService servives={information}/>);
+  const [cardInf, setCardInf] = useState();
+
+  const representacion = (solicitud) => {
+    if (solicitud === 'users') {
+      return <CardUser users={information}/>
+    }else if (solicitud === 'products'){
+      return <CardProduct products={information} />
+    }else {
+      return <CardService services={information}/>
+    }
+  };
 
   return (
     <div>
@@ -16,19 +26,19 @@ const Home = ({ information, getApi }) => {
       <Container>
         <Row>
           <Col>
-            <Button onClick={()=>{setCardInf(<CardService servives={information}/>); getApi('services')}}>Servicios</Button>
+            <Button onClick={()=>{setCardInf('services'); getApi('services')}}>Servicios</Button>
           </Col>
           <Col>
-            <Button onClick={()=>{setCardInf(<CardProduct products={information} />); getApi('products')}}>Productos</Button>
+            <Button onClick={()=>{setCardInf('products'); getApi('products')}}>Productos</Button>
           </Col>
           <Col>
-            <Button onClick={()=>{setCardInf(<CardUser users={information}/>); getApi('users')}}>Profesores</Button>
+            <Button onClick={()=>{setCardInf('users'); getApi('users')}}>Profesores</Button>
           </Col>
         </Row>
       </Container>
         <hr />
       <Container className="py-5">
-        {cardInf}
+        {representacion (cardInf)}
       </Container>
     </div>
   );

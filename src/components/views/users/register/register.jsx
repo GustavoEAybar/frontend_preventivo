@@ -21,11 +21,14 @@ const Register = ({ setLoggedUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
+      image: inputs.image,
       nameUser: inputs.nameUser,
       lastNameUser: inputs.lastNameUser,
       email: inputs.email,
       phone: inputs.phone,
       password: inputs.password,
+      classes: inputs.classes,
+      contractedPlan: inputs.contractedPlan,
       roll: inputs.roll,
     };
 
@@ -42,7 +45,7 @@ const Register = ({ setLoggedUser }) => {
         console.log(data);
         localStorage.setItem("user-token", JSON.stringify(data));
         setLoggedUser(data);
-        navigate("/services/table");
+        navigate("/users/table");
       }
     } catch (error) {
       console.log(error);
@@ -57,6 +60,19 @@ const Register = ({ setLoggedUser }) => {
         <h1>Registro</h1>
         <hr />
         <Form className="my-5" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicImage">
+            <Form.Label>Foto de perfil</Form.Label>
+            <Form.Control
+              type="string"
+              placeholder="Foto de perfil"
+              maxLength={200}
+              minLength={1}
+              required
+              name="image"
+              value={inputs.image || ""}
+              onChange={(e) => handleChange(e)}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicNameUser">
             <Form.Label>Nombre</Form.Label>
             <Form.Control
@@ -100,8 +116,8 @@ const Register = ({ setLoggedUser }) => {
           <Form.Group className="mb-3" controlId="formBasicPhone">
             <Form.Label>Numero de telefono</Form.Label>
             <Form.Control
-              type="number"
-              placeholder="Numero de telefono"
+              type="phone"
+              placeholder="3815112233"
               maxLength={20}
               minLength={7}
               required
@@ -111,14 +127,28 @@ const Register = ({ setLoggedUser }) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Contraseña</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="********"
               minLength={8}
               required
               name="password"
               value={inputs.password || ""}
+              onChange={(e) => handleChange(e)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicContractedPlan">
+            <Form.Label>Plan/es contratado/s</Form.Label>
+            <Form.Control
+              type="string"
+              placeholder="Plan/es contratado/s"
+              rows={3}
+              minLength={4}
+              maxLength={100}
+              name="contractedPlan"
+              required
+              value={inputs.contractedPlan||""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>

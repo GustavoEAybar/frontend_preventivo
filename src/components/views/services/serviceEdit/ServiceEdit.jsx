@@ -12,7 +12,7 @@ import {
   validatePlanType,
   validateDescription,
   validatePrice,
-} from "../../../../helpers/validateFields";
+} from "../../../../helpers/validateServices";
 import Swal from "sweetalert2";
 import { STATUS } from "../../../../constants";
 
@@ -36,7 +36,7 @@ const ServiceEdit = ({ getApi }) => {
 
   const getOne = async () => {
     try {
-      const res = await axios.get(`${URL}/${id}`);
+      const res = await axios.get(`${URL}/services/${id}`);
       const serviceApi = res.data;
       setService(serviceApi);
     } catch {}
@@ -80,7 +80,7 @@ const ServiceEdit = ({ getApi }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.put(`${URL}/${id}`, serviceUpdate, {
+          const res = await axios.put(`${URL}/services/${id}`, serviceUpdate, {
             headers: {
               "Content-Type": "application/json",
               "x-access-token": JSON.parse(localStorage.getItem("user-token"))
@@ -96,7 +96,7 @@ const ServiceEdit = ({ getApi }) => {
             getApi();
             navigate("/services/table");
           }
-        } catch (error) {}
+        } catch {}
       }
     });
   };

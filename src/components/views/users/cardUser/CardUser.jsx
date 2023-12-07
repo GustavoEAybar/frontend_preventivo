@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
 
 const CardUser = (users) => {
     return (
@@ -8,6 +8,7 @@ const CardUser = (users) => {
         {users?.length !== 0 ? (
           <Row>
             {users?.map((user) => (
+              user.roll !== "usuario" &&
               <Col xl={3} lg={4} md={6} key={user?._id}>
                 <Card className="my-4">
                   <Card.Img
@@ -18,20 +19,10 @@ const CardUser = (users) => {
                   <Card.Body>
                     <div className="d-flex align-items-center justifu-content-between mb-2">
                       <Card.Title className="m-0 text-truncate">
-                        {user?.nameuser}
+                        {user?.nameuser} + {' '} + {user?.lastNameUser}
                       </Card.Title>
-                      <span className="badge bg-dark">Nuevo</span>
                     </div>
                     <Card.Text>{user?.description}</Card.Text>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <p className="mb-0 ms-4 fs-4">$ {user?.price}</p>
-                      <Link
-                        to={`/users/buy/${user?._id}`}
-                        className="btn btn-primary"
-                      >
-                        Adquirir
-                      </Link>
-                    </div>
                   </Card.Body>
                 </Card>
               </Col>

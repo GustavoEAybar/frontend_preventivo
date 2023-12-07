@@ -39,11 +39,14 @@ const Service = ({ user, getApi }) => {
   return (
     <tr>
       <td>{user?._id}</td>
+      <td>{user?.imagen}</td>
       <td>{user?.nameUser}</td>
       <td>{user?.lastNameUser}</td>
       <td>{user?.email}</td>
       <td>{user?.phone}</td>
       <td>{user?.password}</td>
+      <td>{user?.Classes}</td>
+      <td>{user?.ContractedPlan}</td>
       <td>{user?.roll}</td>
       <td className="w-25">
         <div className="d-flex justify-content-center">
