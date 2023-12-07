@@ -20,7 +20,7 @@ const ServiceEdit = ({ getApi }) => {
   const [service, setService] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
-  const URL = process.env.REACT_APP_Apex_Gym_servies;
+  const URL = process.env.REACT_APP_Apex_Gym;
   const nameServiceRef = useRef(null);
   const nameTeacherRef = useRef(null);
   const dateRef = useRef(null);

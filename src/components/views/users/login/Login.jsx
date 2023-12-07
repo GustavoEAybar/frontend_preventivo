@@ -9,7 +9,7 @@ const Login = ({ setLoggedUser }) => {
   const [inputs, setInputs] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const URL = process.env.REACT_APP_Apex_Gym_users;
+  const URL = process.env.REACT_APP_Apex_Gym;
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -22,11 +22,11 @@ const Login = ({ setLoggedUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${URL}/login`, {
+      const res = await axios.post(`${URL}/users/login`, {
         email: inputs.email,
         password: inputs.password,
       });
-      if (res.status === STATUS.STATUS_OK) {
+      if (res.status === STATUS.OK) {
         Swal.fire("Logged!", "tu usuario a sido logeado con exito", "success");
         const data = res.data;
         localStorage.setItem("user-token", JSON.stringify(data));

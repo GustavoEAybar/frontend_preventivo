@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 const ServiceDetails = () => {
     const [service, setService] = useState({});
     const { id } = useParams();
-    const URL = process.env.REACT_APP_Apex_Gym_servies;
+    const URL = process.env.REACT_APP_Apex_Gym;
     
     useEffect(() => {
         getServisById();

@@ -9,7 +9,7 @@ const Register = ({ setLoggedUser }) => {
   const [inputs, setInputs] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const URL = process.env.REACT_APP_Apex_Gym_users;
+  const URL = process.env.REACT_APP_Apex_Gym;
 
   const handleChange = (event) => {
     const name = event.target.name;
