@@ -1,27 +1,44 @@
-import { Col, Container, Row } from "react-bootstrap";
-import CardService from "./cardService/CardService";
+/* eslint-disable array-callback-return */
+import { Button, Col, Container, Row } from "react-bootstrap";
+import CardService from "../services/cardService/CardService";
 import CarouselHome from "./carouselHome/CarouselHome";
+import { useState } from "react";
+import CardProduct from "../products/cardProduct/CardProduct";
+import CardUser from "../users/cardUser/CardUser";
 
-const Home = ({ services }) => {
+const Home = ({ information, getApi }) => {
+
+  const [cardInf, setCardInf] = useState();
+
+  const representacion = (solicitud) => {
+    if (solicitud === 'users') {
+      return <CardUser users={information}/>
+    }else if (solicitud === 'products'){
+      return <CardProduct products={information} />
+    }else {
+      return <CardService services={information}/>
+    }
+  };
+
   return (
     <div>
       <CarouselHome />
-      <Container className="py-5">
-        <h1>Servicios</h1>
+      <Container>
+        <Row>
+          <Col>
+            <Button onClick={()=>{setCardInf('services'); getApi('services')}}>Servicios</Button>
+          </Col>
+          <Col>
+            <Button onClick={()=>{setCardInf('products'); getApi('products')}}>Productos</Button>
+          </Col>
+          <Col>
+            <Button onClick={()=>{setCardInf('users'); getApi('users')}}>Profesores</Button>
+          </Col>
+        </Row>
+      </Container>
         <hr />
-        {services?.length !== 0 ? (
-          <Row>
-            {services?.map((service) => {
-              <Col xl={3} lg={4} md={6} key={service?._id}>
-                <CardService service={service} />
-              </Col>;
-            })}
-          </Row>
-        ) : (
-          <div className="no-services-found d-flwz align-items-center justify-content-center">
-            <h1>🏋️‍♀️ Servicios no encontrados 🏋️‍♀️</h1>
-          </div>
-        )}
+      <Container className="py-5">
+        {representacion (cardInf)}
       </Container>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
@@ -5,15 +6,16 @@ import { Link, useParams } from 'react-router-dom';
 const ServiceDetails = () => {
     const [service, setService] = useState({});
     const { id } = useParams();
+    const URL = process.env.REACT_APP_Apex_Gym;
     
     useEffect(() => {
         getServisById();
     }, []);
     const getServisById = async () => {
         try {
-            const res = await fetch(`${URL}/${id}`);
-            const productApi = await res.json();
-            setService(productApi);
+            const res = await fetch(`${URL}/services/${id}`);
+            const servicesApi = await res.json();
+            setService(servicesApi);
         } catch (error) {
             
         }
@@ -44,7 +46,7 @@ const ServiceDetails = () => {
                         <div>
                             <Link 
                             to='/services/confirm'
-                            className='btn-primary mx-1 text-decoration-none text-center'>Comprar</Link>
+                            className='btn btn-primary mx-1 text-decoration-none text-center'>Comprar</Link>
                         </div>
                     </Card.Body>
                 </Card>

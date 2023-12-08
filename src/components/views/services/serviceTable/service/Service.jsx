@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { STATUS } from "../../../../constants";
-import axios from "../../../../config/axiosInit";
+import { STATUS } from "../../../../../constants";
+import axios from "../../../../../config/axiosInit";
 
 const Service = ({ service, getApi }) => {
-  const URL = process.env.REACT_APP_Apex_Gym_servies;
+  const URL = process.env.REACT_APP_Apex_Gym;
   const handleDelete = (id) => {
     Swal.fire({
       title: "¿Estas seguro?",
@@ -18,7 +18,7 @@ const Service = ({ service, getApi }) => {
       if (result.isConfirmed) {
         try {
           const res = await axios
-            .delete(`${URL}/${id}`, {
+            .delete(`${URL}/services/${id}`, {
               headers: {
                 "Content-Type": "application/json",
                 "x-access-token": JSON.parse(
@@ -32,7 +32,7 @@ const Service = ({ service, getApi }) => {
                   "El servicio ha sido eliminado.",
                   "success"
                 );
-                getApi();
+                getApi('services');
               }
         } catch (error) {
 
@@ -49,14 +49,14 @@ const Service = ({ service, getApi }) => {
         <td>{service?.time}</td>
         <td>
             <p className="truncate-img-link m-0">{service?.image}</p></td>
-        <td>{service?.planeType}</td>
+        <td>{service?.planType}</td>
         <td>{service?.description}</td>
         <td>$ {service?.price}</td>
         <td className="w-25">
             <div className="d-flex justify-content-center">
                 <Link
-                to={`/service/edit/${service?._id}`}
-                className='btn-primary mx-1 text-decoration-none text-center'>Actualizar</Link>
+                to={`/services/edit/${service?._id}`}
+                className='btn btn-primary mx-1 text-decoration-none text-center'>Actualizar</Link>
                 <button onClick={() => handleDelete(service?._id)} className='btn-danger mx-1 text-decoration-none text-center'>Eliminar</button>
             </div>
         </td>
