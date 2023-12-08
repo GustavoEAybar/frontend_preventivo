@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 
 
-const CardUser = (users) => {
+const CardUser = ({ users }) => {
     return (
         <div>
         {users?.length !== 0 ? (
@@ -11,10 +11,11 @@ const CardUser = (users) => {
               user.roll !== "usuario" &&
               <Col xl={3} lg={4} md={6} key={user?._id}>
                 <Card className="my-4">
-                  <Card.Img
+                  <img
                     className="img-fluid"
                     variant="top"
                     src={user?.image}
+                    alt='imagen de un usuario'
                   />
                   <Card.Body>
                     <div className="d-flex align-items-center justifu-content-between mb-2">

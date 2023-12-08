@@ -1,8 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import User from "./User/User";
+import { useEffect } from "react";
 
 const UsersTable = ({ users, getApi }) => {
+  useEffect(() => {
+    getApi("users");
+  }, []);
   return (
     <div>
       <Container className="py-5">

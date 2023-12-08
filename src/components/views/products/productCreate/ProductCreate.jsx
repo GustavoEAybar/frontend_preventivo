@@ -1,6 +1,7 @@
 import { Alert, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import {
   validateNameProduct,
   validateImage,
@@ -13,7 +14,6 @@ import {
   validatePrice,
 } from "../../../../helpers/validateProducts";
 import { STATUS } from "../../../../constants";
-import Swal from "sweetalert2";
 import axios from "../../../../config/axiosInit";
 
 const ProductCreate = ({ URL, getApi }) => {
@@ -30,7 +30,7 @@ const ProductCreate = ({ URL, getApi }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      !validateNameProduct(inputs.nameService) ||
+      !validateNameProduct(inputs.nameProduct) ||
       !validateImage(inputs.image) ||
       !validateCategory(inputs.category) ||
       !validateType(inputs.type) ||
@@ -44,8 +44,8 @@ const ProductCreate = ({ URL, getApi }) => {
       return;
     }
 
-    const newService = {
-      nameService: inputs.nameService,
+    const newProduct = {
+      nameProduct: inputs.nameProduct,
       image: inputs.image,
       category: inputs.category,
       type: inputs.type,
@@ -67,16 +67,17 @@ const ProductCreate = ({ URL, getApi }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.post(`${URL}/products`, newService, {
+          const res = await axios.post(`${URL}/products`, newProduct, {
             headers: {
               "Content-Type": "application/json",
               "x-access-token": JSON.parse(localStorage.getItem("user-token"))
                 .token,
             },
           });
+          console.log(res.status);
           if (res.status === STATUS.CREATED) {
             Swal.fire("¡Creado!", "El servicio ha sido creado.", "success");
-            getApi();
+            getApi("products");
             navigate("/products/table");
           }
         } catch (error) {
@@ -160,13 +161,13 @@ const ProductCreate = ({ URL, getApi }) => {
           <Form.Group className="mb-3" controlId="formBasicWeight">
             <Form.Label>Peso</Form.Label>
             <Form.Control
-              type="number"
+              type="string"
               maxLength={5}
               minLength={0}
               max={10000}
               min={0}
               placeholder="Peso"
-              name="Weight"
+              name="weight"
               onChange={handleChange}
               required
             />

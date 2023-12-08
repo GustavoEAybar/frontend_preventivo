@@ -8,8 +8,8 @@ import {
   validateDate,
   validateTime,
   validateImage,
-  validateDescription,
   validatePlanType,
+  validateDescription,
   validatePrice,
 } from "../../../../helpers/validateServices";
 import { STATUS } from "../../../../constants";
@@ -64,16 +64,17 @@ const ServiceCreate = ({ URL, getApi }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.post(URL, newService, {
+          const res = await axios.post(`${URL}/services`, newService, {
             headers: {
               "Content-Type": "application/json",
               "x-access-token": JSON.parse(localStorage.getItem("user-token"))
                 .token,
             },
           });
-          if (res.status === STATUS.STATUS_CREATED) {
+          console.log(res.status);
+          if (res.status === STATUS.CREATED) {
             Swal.fire("¡Creado!", "El servicio ha sido creado.", "success");
-            getApi();
+            getApi("services");
             navigate("/services/table");
           }
         } catch (error) {

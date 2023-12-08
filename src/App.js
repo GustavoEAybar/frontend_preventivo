@@ -24,10 +24,6 @@ import UserEdit from "./components/views/users/userEdit/UserEdit.jsx";
 
 function App() {
   const [information, setInformation] = useState([]);
-  const [services, setServices] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [users, setUsers] = useState([]);
-  // const [link, setLink] = useState('');
   const [loggedUser, setLoggedUser] = useState([]);
   const URL = process.env.REACT_APP_Apex_Gym;
 
@@ -41,17 +37,17 @@ function App() {
         case "services":
           const resServices = await axios.get(`${URL}/${link}`);
           setInformation(resServices.data);
-          setServices(resServices.data);
+          
           break;
         case "products":
           const resProducts = await axios.get(`${URL}/${link}`);
           setInformation(resProducts.data);
-          setProducts(resProducts.data);
+          
           break;
         case "users":
           const resUsers = await axios.get(`${URL}/${link}`);
           setInformation(resUsers.data);
-          setUsers(resUsers.data);
+          
           break;
         default:
           const resSer = await axios.get(`${URL}/services`);
@@ -78,20 +74,20 @@ function App() {
                     exact
                     path="/services/table"
                     element={
-                      <ServicesTable services={services} getApi={getApi} />
+                      <ServicesTable services={information} getApi={getApi} />
                     }
                   />
                   <Route
                     exact
                     path="/products/table"
                     element={
-                      <ProductsTable products={products} getApi={getApi} />
+                      <ProductsTable products={information} getApi={getApi} />
                     }
                   />
                   <Route
                     exact
                     path="/users/table"
-                    element={<UsersTable users={users} getApi={getApi} />}
+                    element={<UsersTable users={information} getApi={getApi} />}
                   />
                   <Route
                     exact

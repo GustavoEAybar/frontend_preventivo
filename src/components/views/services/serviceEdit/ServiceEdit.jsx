@@ -87,13 +87,13 @@ const ServiceEdit = ({ getApi }) => {
                 .token,
             },
           });
-          if (res.status === STATUS.STATUS_OK) {
+          if (res.status === STATUS.OK) {
             Swal.fire(
               "¡Actualizado!",
               "El servicio ha sido actualizado.",
               "success"
             );
-            getApi();
+            getApi("services");
             navigate("/services/table");
           }
         } catch {}

@@ -1,14 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Product from "./product/Product";
+import { useEffect } from "react";
 
 const ProductsTable = ({ products, getApi }) => {
+  useEffect(()=>{
+    getApi("products")
+  }, [])
   return (
     <div>
       <Container className="py-5">
         <div className="d-flex align--items-center justify-content-between">
           <h1>Lista de productos</h1>
-          <Link to="/productos/create" className="btn btn-primary">
+          <Link to="/products/create" className="btn btn-primary">
             Crear producto
           </Link>
         </div>

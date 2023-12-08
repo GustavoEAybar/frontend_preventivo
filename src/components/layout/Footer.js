@@ -10,10 +10,8 @@ const Footer = () => {
 
           </div>
         </Col>
-        <Col>
-          <figure>
-            <image src='./imagenes/ApexGym.jpeg'/>
-          </figure>
+        <Col>          
+            <img src='./imagenes/ApexGym.jpg' alt="logo de apex"/>
         </Col>
         <Col>
           <div>

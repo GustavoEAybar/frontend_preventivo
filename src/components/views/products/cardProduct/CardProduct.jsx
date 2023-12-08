@@ -1,8 +1,7 @@
-import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const CardProduct = (products) => {
+const CardProduct = ({ products }) => {
     return (
         <div>
         {products?.length !== 0 ? (
@@ -10,10 +9,11 @@ const CardProduct = (products) => {
             {products?.map((product) => (
               <Col xl={3} lg={4} md={6} key={product?._id}>
                 <Card className="my-4">
-                  <Card.Img
+                  <img
                     className="img-fluid"
                     variant="top"
                     src={product?.image}
+                    alt='imagen de un producto'
                   />
                   <Card.Body>
                     <div className="d-flex align-items-center justifu-content-between mb-2">

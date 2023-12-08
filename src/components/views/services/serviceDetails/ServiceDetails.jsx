@@ -13,9 +13,9 @@ const ServiceDetails = () => {
     }, []);
     const getServisById = async () => {
         try {
-            const res = await fetch(`${URL}/${id}`);
-            const productApi = await res.json();
-            setService(productApi);
+            const res = await fetch(`${URL}/services/${id}`);
+            const servicesApi = await res.json();
+            setService(servicesApi);
         } catch (error) {
             
         }

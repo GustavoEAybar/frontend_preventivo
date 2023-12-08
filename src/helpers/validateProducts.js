@@ -1,9 +1,9 @@
 const regExpNameProduct = /^[A-Za-z\s?]+$/;
 const regExpImage = /^((http|https):\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/;
 const regExpCategory = /^[A-Za-z\s?]+$/;
-const regExpType = /^(lunes|martes|miercoles|jueves|viernes|sabado|domingo)(, (lunes|martes|miercoles|jueves|viernes|sabado|domingo)){0,2}|full$/;
-const regExpSize = /^de (\d{1,2}:\d{2}) a (\d{1,2}:\d{2})|full$/;
-const regExpWeight = /^[A-Za-z\-\s?]+$/;
+const regExpType = /^[A-Za-z\s?]+$/;
+const regExpSize = /^[A-Z]{1,3} || [0-9]{1,2} || ([½IVX]{1,3})?|| 0 || NA $/;
+const regExpWeight = /^[A-Za-z0-9\-\s?]+$/;
 const regExpDescription = /^.{1,500}$/;
 const regExpStock = /[0-9]+$/;
 const regExpPrice = /[0-9]+$/;
@@ -39,7 +39,7 @@ const validateType = (field) => {
   if (regExpType.test(field) && field?.trim() !== "") {
     return true;
   } else {
-    console.log('Valor invalido desde DATE');
+    console.log('Valor invalido desde TIPO');
     return false;
   }
 };
@@ -48,7 +48,7 @@ const validateSize = (field) => {
   if (regExpSize.test(field) && field?.trim() !== "") {
     return true;
   } else {
-    console.log('Valor invalido desde Size');
+    console.log('Valor invalido desde TALLE');
     return false;
   }
 };
@@ -80,7 +80,7 @@ const validateStock = (field) => {
   ) {
     return true;
   } else {
-    console.log('Valor invalido desde PRICE');
+    console.log('Valor invalido desde UNIDADES');
     return false;
   }
 };

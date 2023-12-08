@@ -139,12 +139,24 @@ const Register = ({ setLoggedUser }) => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicClasses">
+            <Form.Label>Clases</Form.Label>
+            <Form.Control
+              type="string"
+              placeholder="boxeo, musculacion"
+              minLength={4}
+              maxLength={100}
+              name="classes"
+              required
+              value={inputs.classes || ""}
+              onChange={(e) => handleChange(e)}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicContractedPlan">
             <Form.Label>Plan/es contratado/s</Form.Label>
             <Form.Control
               type="string"
-              placeholder="Plan/es contratado/s"
-              rows={3}
+              placeholder="boxeo principiante, solo muculacion"
               minLength={4}
               maxLength={100}
               name="contractedPlan"

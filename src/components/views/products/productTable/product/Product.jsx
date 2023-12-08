@@ -32,7 +32,7 @@ const Product = ({ product, getApi }) => {
                   "El servicio ha sido eliminado.",
                   "success"
                 );
-                getApi();
+                getApi("products");
               }
         } catch (error) {
 

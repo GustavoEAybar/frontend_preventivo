@@ -13,7 +13,7 @@ const ProductDetails = () => {
     }, []);
     const getProductById = async () => {
         try {
-            const res = await fetch(`${URL}/product/${id}`);
+            const res = await fetch(`${URL}/products/${id}`);
             const productApi = await res.json();
             setProduct(productApi);
         } catch {
