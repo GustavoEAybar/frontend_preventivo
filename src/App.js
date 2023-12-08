@@ -37,25 +37,21 @@ function App() {
         case "services":
           const resServices = await axios.get(`${URL}/${link}`);
           setInformation(resServices.data);
-          
           break;
         case "products":
           const resProducts = await axios.get(`${URL}/${link}`);
           setInformation(resProducts.data);
-          
           break;
         case "users":
           const resUsers = await axios.get(`${URL}/${link}`);
           setInformation(resUsers.data);
-          
           break;
         default:
           const resSer = await axios.get(`${URL}/services`);
           setInformation(resSer.data);
           break;
       }
-    } catch (error) {
-      console.log(error);
+    } catch{
     }
   };
 
@@ -70,6 +66,7 @@ function App() {
             element={
               <ProtectedRoute>
                 <Routes>
+                  <Route exact path="/" element={<Home information={information} getApi={getApi}/>} />
                   <Route
                     exact
                     path="/services/table"

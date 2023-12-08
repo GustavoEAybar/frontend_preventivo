@@ -31,11 +31,8 @@ const Register = ({ setLoggedUser }) => {
       contractedPlan: inputs.contractedPlan,
       roll: inputs.roll,
     };
-
-    console.log(inputs.contractedPlan);
     try {
       const res = await axios.post(`${URL}/users/register`, newUser);
-      console.log(res);
       if (res.status === STATUS.CREATED) {
         Swal.fire(
           "Registrado!",
@@ -43,13 +40,11 @@ const Register = ({ setLoggedUser }) => {
           "success"
         );
         const data = res.data;
-        console.log(data);
         localStorage.setItem("user-token", JSON.stringify(data));
         setLoggedUser(data);
         navigate("/users/table");
       }
-    } catch (error) {
-      console.log(error);
+    } catch (error) {      
       setError(true);
       error.response?.data?.message &&
         setErrorMessage(error.response?.data?.message);

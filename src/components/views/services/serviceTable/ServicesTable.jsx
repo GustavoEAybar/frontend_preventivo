@@ -1,8 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Service from "./service/Service";
+import { useEffect } from "react";
 
 const ServicesTable = ({ services, getApi }) => {
+  
+  useEffect(()=>{
+    getApi("services")
+  }, []);
+
   return (
     <div>
       <Container className="py-5">
