@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
         </Col>
         <Col>          
-            <img src='./imagenes/ApexGym.jpg' alt="logo de apex"/>
+            <img src='/imagenes/ApexGym.jpg' alt="logo de apex"/>
         </Col>
         <Col>
           <div>
