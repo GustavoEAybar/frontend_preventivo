@@ -14,7 +14,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand className="logo" href="/">
-            <img src="/public/ApexGym.jpg" alt="logo de apex" />
+            <img src="/ApexGym.jpg" alt="logo de apex" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
