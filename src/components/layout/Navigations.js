@@ -1,5 +1,6 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import './logo.css'
 
 const Navigations = ({ loggedUser, setLoggedUser }) => {
   const navigate = useNavigate();
@@ -11,10 +12,10 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
 
   return (
     <div>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar className="background" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand className="logo" href="/">
-            <img src="/ApexGym.jpg" alt="logo de apex" />
+          <Navbar.Brand  href="/">
+            <img src="/ApexGym.jpg" alt="logo de apex" className="img-fluid rounded float-start w-150 h-auto logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

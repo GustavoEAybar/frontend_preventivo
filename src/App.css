@@ -1,5 +1,7 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.backgroundMain{
+  background: #000120de;
+}
+
+.backgroundButton{
+  background: rgb(253, 238, 33);
 }

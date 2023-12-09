@@ -21,6 +21,8 @@ import Login from "./components/views/users/login/Login.jsx";
 import Register from "./components/views/users/register/register.jsx";
 import UsersTable from "./components/views/users/usersTable/UsersTable.jsx";
 import UserEdit from "./components/views/users/userEdit/UserEdit.jsx";
+import AboutUs from "./components/views/aboutUs/AboutUs.jsx";
+import Contacts from "./components/views/contacts/Contacts.jsx";
 
 function App() {
   const [information, setInformation] = useState([]);
@@ -58,7 +60,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
-      <main>
+      <main className="backgroundMain">
         <Routes>
           <Route exact path="/" element={<Home information={information} getApi={getApi}/>} />
           <Route
@@ -117,6 +119,8 @@ function App() {
           />
           <Route exact path="/services/buy/:id" element={<ServiceDetails />} />
           <Route exact path="/products/buy/:id" element={<ProductDetails />} />
+          <Route exact path="/aboutUs" element={<AboutUs />} />
+          <Route exact path="/contacts" element={<Contacts />} />
           <Route
             exact
             path="/users/login/"

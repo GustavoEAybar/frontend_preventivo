@@ -17,7 +17,7 @@ const CardUser = ({ users }) => {
                     src={user?.image}
                     alt='imagen de un usuario'
                   />
-                  <Card.Body>
+                  <Card.Body className="backgroundMain text-white">
                     <div className="d-flex align-items-center justifu-content-between mb-2">
                       <Card.Title className="m-0 text-truncate">
                         {user?.nameuser} + {' '} + {user?.lastNameUser}
