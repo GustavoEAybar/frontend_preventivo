@@ -29,7 +29,7 @@ const Login = ({ setLoggedUser }) => {
       if (res.status === STATUS.OK) {
         Swal.fire("Logged!", "tu usuario a sido logeado con exito", "success");
         const data = res.data;
-        localStorage.setItem("user-token", JSON.stringify(data));
+        localStorage.setItem("user-token", JSON.stringify(data.token));
         setLoggedUser(data);
         navigate("/");
       }

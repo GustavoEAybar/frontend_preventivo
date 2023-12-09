@@ -24,7 +24,7 @@ import UserEdit from "./components/views/users/userEdit/UserEdit.jsx";
 
 function App() {
   const [information, setInformation] = useState([]);
-  const [loggedUser, setLoggedUser] = useState([]);
+  const [loggedUser, setLoggedUser] = useState({});
   const URL = process.env.REACT_APP_Apex_Gym;
 
   useEffect(() => {
