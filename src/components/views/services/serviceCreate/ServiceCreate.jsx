@@ -67,11 +67,9 @@ const ServiceCreate = ({ URL, getApi }) => {
           const res = await axios.post(`${URL}/services`, newService, {
             headers: {
               "Content-Type": "application/json",
-              "x-access-token": JSON.parse(localStorage.getItem("user-token"))
-                .token,
+              "x-access-token": JSON.parse(localStorage.getItem("user-token")).token,
             },
           });
-          console.log(res.status);
           if (res.status === STATUS.CREATED) {
             Swal.fire("¡Creado!", "El servicio ha sido creado.", "success");
             getApi("services");

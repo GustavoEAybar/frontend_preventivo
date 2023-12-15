@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { STATUS } from "../../../../../constants";
 import axios from "../../../../../config/axiosInit";
 
-const Service = ({ user, getApi }) => {
+const User = ({ user, getApi }) => {
   const URL = process.env.REACT_APP_Apex_Gym;
   const handleDelete = (id) => {
     Swal.fire({
@@ -30,7 +30,7 @@ const Service = ({ user, getApi }) => {
               "El servicio ha sido eliminado.",
               "success"
             );
-            getApi();
+            getApi('users');
           }
         } catch (error) {}
       }
@@ -39,14 +39,14 @@ const Service = ({ user, getApi }) => {
   return (
     <tr>
       <td>{user?._id}</td>
-      <td>{user?.imagen}</td>
+      <td>{user?.image}</td>
       <td>{user?.nameUser}</td>
       <td>{user?.lastNameUser}</td>
       <td>{user?.email}</td>
       <td>{user?.phone}</td>
       <td>{user?.password}</td>
-      <td>{user?.Classes}</td>
-      <td>{user?.ContractedPlan}</td>
+      <td>{user?.classes}</td>
+      <td>{user?.contractedPlan}</td>
       <td>{user?.roll}</td>
       <td className="w-25">
         <div className="d-flex justify-content-center">
@@ -68,4 +68,4 @@ const Service = ({ user, getApi }) => {
   );
 };
 
-export default Service;
+export default User;

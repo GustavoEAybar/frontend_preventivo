@@ -13,9 +13,9 @@ import {
 } from "../../../../helpers/validateUsers";
 import { STATUS } from "../../../../constants/index";
 import { useEffect, useRef, useState } from "react";
-import { Form, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Container } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 
 const UserEdit = ({ getApi }) => {
   const [user, setUser] = useState({});
@@ -39,13 +39,14 @@ const UserEdit = ({ getApi }) => {
   const getOne = async () => {
     try {
       const res = await axios.get(`${URL}/users/${id}`);
-      const serviceApi = res.data;
-      setUser(serviceApi);
+      const userApi = res.data;
+      setUser(userApi);
     } catch {}
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(rollRef.current.value);
     if (
       !validateImage(imageRef.current.value) ||
       !validateNameUser(nameUserRef.current.value) ||
@@ -113,13 +114,10 @@ const UserEdit = ({ getApi }) => {
           <Form.Group className="mb-3" controlId="formBasicImage">
             <Form.Label>Foto de perfil</Form.Label>
             <Form.Control
-              type="string"
+              type="text"
               placeholder="Foto de perfil"
-              maxLength={200}
-              minLength={1}
-              defaultValue={user.image}
+              defaultValue={user?.image}
               ref={imageRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicNameUser">
@@ -129,9 +127,8 @@ const UserEdit = ({ getApi }) => {
               placeholder="Nombre del usuario"
               maxLength={50}
               minLength={3}
-              defaultValue={user.nameUser}
+              defaultValue={user?.nameUser}
               ref={nameUserRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicLastnameUser">
@@ -141,86 +138,74 @@ const UserEdit = ({ getApi }) => {
               maxLength={50}
               minLength={3}
               placeholder="Apellido del usuario"
-              defaultValue={user.lasNameUser}
+              defaultValue={user?.lastNameUser}
               ref={lastnameUserRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
-              type="string"
+              type="email"
               maxLength={100}
               minLength={12}
               placeholder="Email"
-              defaultValue={user.email}
+              defaultValue={user?.email}
               ref={emailRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPhone">
             <Form.Label>Telefono</Form.Label>
             <Form.Control
-              type="phone"
+              type="number"
               placeholder="3815112233"
-              minLength={7}
-              maxLength={20}
-              defaultValue={user.phone}
+              defaultValue={user?.phone}
               ref={phoneRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Contraseña</Form.Label>
             <Form.Control
-              type="string"
+              type="password"
               placeholder="********"
-              minLength={8}
-              defaultValue={user.password}
+              defaultValue={user?.password}
               ref={passwordRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicClasses">
             <Form.Label>Clases</Form.Label>
             <Form.Control
-              type="string"
-              minLength={4}
-              defaultValue={user.classes}
+              type="text"
+              placeholder="Ej: natacion"
+              defaultValue={user?.classes}
               ref={classesRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicContractedPlan">
             <Form.Label>Plan/es contratado/s</Form.Label>
             <Form.Control
-              type="string"
-              placeholder="Plan/es contratado/s"
-              rows={3}
-              minLength={4}
-              maxLength={100}
-              defaultValue={user.contractedPlan}
+              type="text"
+              placeholder="Ej: full"
+              defaultValue={user?.contractedPlan}
               ref={contractedPlanRef}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicRoll">
             <Form.Label>Roll</Form.Label>
             <Form.Select
-              type="string"
-              minLength={7}
-              maxLength={20}
-              ref={rollRef}
-              required
+              value={user?.roll}
+              onChenge={({ target }) =>
+                setUser({ ...user, roll: target.value })
+                
+              }
             >
-              <option>{user.roll}</option>
-              <option>Usuario</option>
-              <option>Profesor</option>
-              <option>Administrador</option>
+              <option value="">Seleccione una opcion</option>
+              <option value="usuario">Usuario</option>
+              <option value="profesor">Profesor</option>
+              <option value="administrador">Administrador</option>
             </Form.Select>
           </Form.Group>
           <div className="text-end">
-            <button className="btn btn-primary">Actualizar</button>
+            <Button className="btn btn-primary">Actualizar</Button>
           </div>
         </Form>
       </Container>
