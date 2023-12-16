@@ -46,7 +46,6 @@ const UserEdit = ({ getApi }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(rollRef.current.value);
     if (
       !validateImage(imageRef.current.value) ||
       !validateNameUser(nameUserRef.current.value) ||
@@ -98,7 +97,7 @@ const UserEdit = ({ getApi }) => {
               "El usuario ha sido actualizado.",
               "success"
             );
-            getApi();
+            getApi("users");
             navigate("/users/table");
           }
         } catch {}
@@ -192,20 +191,21 @@ const UserEdit = ({ getApi }) => {
           <Form.Group className="mb-3" controlId="formBasicRoll">
             <Form.Label>Roll</Form.Label>
             <Form.Select
-              value={user?.roll}
+              ref={rollRef}
               onChenge={({ target }) =>
                 setUser({ ...user, roll: target.value })
-                
               }
             >
-              <option value="">Seleccione una opcion</option>
+              <option value={user?.roll}>{user?.roll}</option>
               <option value="usuario">Usuario</option>
               <option value="profesor">Profesor</option>
               <option value="administrador">Administrador</option>
             </Form.Select>
           </Form.Group>
           <div className="text-end">
-            <Button className="btn btn-primary">Actualizar</Button>
+            <Button type="submit" className="btn btn-primary">
+              Actualizar
+            </Button>
           </div>
         </Form>
       </Container>

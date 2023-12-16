@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <div className="text-light background">
       <Container>
-        <Row className="d-flex justify-content-center">
-          <Col className="m-2" xs={6} md={4}>
+        <Row >
+          <Col>
               <p>
                 <strong>Sobre nosotros</strong>
               </p>
@@ -29,7 +29,7 @@ const Footer = () => {
                 </li>
               </ul>
             </Col>
-            <Col className="d-flex justify-content-center flex-column m-2 text-center"xs={12} md={4}>
+            <Col className="d-flex justify-content-center flex-column m-2 text-center">
               <img
                 src="/ApexGym.jpg"
                 alt="logo de apex"
@@ -40,7 +40,7 @@ const Footer = () => {
               </p>
               <p>© 2023. All Rights Reserved.</p>
             </Col>
-            <Col className="m-2" xs={6} md={4}>
+            <Col>
               <p>
                 <strong>Contacta con nosotros:</strong>
               </p>
@@ -48,7 +48,17 @@ const Footer = () => {
             </Col>
           </Row>
       </Container>
-      <div>
+      <div className="d-flex justify-content-center row ">
+      <img
+                src="/ApexGym.jpg"
+                alt="logo de apex"
+                className="img-fluid rounded float-start logo mx-auto"
+              />
+      <img
+                src="/ApexGym.jpg"
+                alt="logo de apex"
+                className="img-fluid rounded float-start logo mx-auto"
+              />
       <img
                 src="/ApexGym.jpg"
                 alt="logo de apex"

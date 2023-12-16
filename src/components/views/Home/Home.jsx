@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import { Button, Col, Container, Row } from "react-bootstrap";
 import CardService from "../services/cardService/CardService";
-import CarouselHome from "./carouselHome/CarouselHome";
+
 import { useState } from "react";
 import CardProduct from "../products/cardProduct/CardProduct";
 import CardUser from "../users/cardUser/CardUser";
@@ -22,15 +22,12 @@ const Home = ({ information, getApi }) => {
 
   return (
     <div className="d-flex flex-column">
-          <CarouselHome />
+          
       <Container>
         <Row>
-          <Col xs={1} md={1} lg={1} >
-            <Sponsors />
-          </Col>
-          <Col xs={10} md={10} lg={10} >
-            <Container className="m-1 d-flex justify-content-between">
-              <Row >
+          <Col xs={12} md={10} lg={10} >
+            <Container className="m-1 d-flex justify-content-around ">
+              <Row>
                 <Col xs={4} md={4} lg={4}>
                   <Button className="m-0 px-4 py-2 background border border-0"
                     onClick={() => {
@@ -63,10 +60,10 @@ const Home = ({ information, getApi }) => {
                 </Col>
               </Row>
             </Container>
-            <Container className="py-5">{representacion(cardInf)}</Container>
+            <Container className="py-5 d-flex justify-content-center">{representacion(cardInf)}</Container>
           </Col>
-          <Col  xs={1} md={1} lg={1} sm >
-            <Sponsors />
+          <Col  className="d-none d-sm-block" xs={0} md={2} lg={2} sm >
+            <Sponsors/>
           </Col>
         </Row>
       </Container>

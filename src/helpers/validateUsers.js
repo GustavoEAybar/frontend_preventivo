@@ -3,9 +3,9 @@ const regExpNameUser = /^[A-Za-z\s?]+$/;
 const regExpLastnameUser = /^[A-Za-z\s?]+$/;
 const regExpEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const regExpPhone = /^(\+\s?54\s?9\s?\(\d{3}\)\s?\d{7}|\+\s?54\s?9\s?\d{9}|\(\d{5,}\)\s?\d{9}|\d{7,})$/;
-const regExpPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@!$%&?])[A-Za-z\d@!$%&?]{8,}$/;
+const regExpPassword = /^(?=.*[a-zA-Z0-9@!$%&?]).{8,}$/;
 const regExpClasses = /^[A-Za-z\s?]+$/;
-const regExpContractedPlan = /^[a-fA-F0-9]{24}$/;
+const regExpContractedPlan = /^[a-fA-F0-9]{24}|[A-Za-z\s?]+$/;
 const regExpRoll = /^(administrador|profesor|usuario)$/;
 
 

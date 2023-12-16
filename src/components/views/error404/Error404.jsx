@@ -5,7 +5,7 @@ const Error404 = () => {
   return (
     <div>
       <div className="main">
-        {/* SVG y otros elementos visuales */}
+        <img src="../../layout/Error404.png" alt="error 404"/>
       </div>
       <div className="text-center">
         <h2>It seems there was an error ☹ back to home!</h2>

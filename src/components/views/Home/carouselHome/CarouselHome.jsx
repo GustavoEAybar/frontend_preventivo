@@ -3,11 +3,11 @@ import './carouselHome.css'
 
 const CarouselHome = () => {
   return (
-    <div className="mb-1">
+    <div>
       <Carousel>
         <Carousel.Item>
           <img
-            className="d-block w-100 imageCarousel"
+            className="d-block w-100 carrusel"
             src="/images/GYM.jpg"
             alt="Gimnasio"
           />
@@ -18,7 +18,7 @@ const CarouselHome = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100 imageCarousel"
+            className="d-block w-100 carrusel"
             src="/images/BOXEO.jpg"
             alt="boxeador y coach"
           />
@@ -29,7 +29,7 @@ const CarouselHome = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100 imageCarousel"
+            className="d-block carrusel w-100"
             src="/images/SPA.jpg"
             alt="servicios de spa"
           />

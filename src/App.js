@@ -59,7 +59,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigation loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
+      <Navigation loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
       <main className="backgroundMain">
         <Routes>
           <Route exact path="/" element={<Home information={information} getApi={getApi}/>} />
