@@ -24,7 +24,7 @@ const Home = ({ information, getApi }) => {
     <div className="d-flex flex-column">
           
       <Container>
-        <Row>
+        <Row className="d-flex justify-content-center">
           <Col xs={12} md={10} lg={10} >
             <Container className="m-1 d-flex justify-content-around ">
               <Row>
@@ -62,7 +62,7 @@ const Home = ({ information, getApi }) => {
             </Container>
             <Container className="py-5 d-flex justify-content-center">{representacion(cardInf)}</Container>
           </Col>
-          <Col  className="d-none d-sm-block" xs={0} md={2} lg={2} sm >
+          <Col  className="d-none d-sm-block" xs={0} md={2} lg={2}>
             <Sponsors/>
           </Col>
         </Row>
