@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "./config/axiosInit";
+import axios from "./config/axiosInit.js";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
-import Navigation from "./components/layout/Navigations";
+import Navigation from "./components/layout/Navigations.jsx";
 import Home from "./components/views/Home/Home.jsx";
-import Error404 from "./components/views/error404/Error404.jsx";
-import Footer from "./components/layout/Footer";
+import Footer from "./components/layout/Footer.jsx";
 import ServicesTable from "./components/views/services/serviceTable/ServicesTable.jsx";
 import ServiceCreate from "./components/views/services/serviceCreate/ServiceCreate.jsx";
 import ServiceEdit from "./components/views/services/serviceEdit/ServiceEdit.jsx";
@@ -23,6 +22,7 @@ import UsersTable from "./components/views/users/usersTable/UsersTable.jsx";
 import UserEdit from "./components/views/users/userEdit/UserEdit.jsx";
 import AboutUs from "./components/views/aboutUs/AboutUs.jsx";
 import Contacts from "./components/views/contacts/Contacts.jsx";
+import Error404 from "./components/views/error404/Error404.jsx";
 
 function App() {
   const [information, setInformation] = useState([]);
@@ -53,22 +53,24 @@ function App() {
           setInformation(resSer.data);
           break;
       }
-    } catch{
-    }
+    } catch {}
   };
 
   return (
     <BrowserRouter>
-      <Navigation loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
+      <Navigation loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
       <main className="backgroundMain">
         <Routes>
-          <Route exact path="/" element={<Home information={information} getApi={getApi}/>} />
+          <Route
+            exact
+            path="/"
+            element={<Home information={information} getApi={getApi} />}
+          />
           <Route
             path="/*"
             element={
               <ProtectedRoute>
                 <Routes>
-                  <Route exact path="/" element={<Home information={information} getApi={getApi}/>} />
                   <Route
                     exact
                     path="/services/table"
@@ -131,7 +133,7 @@ function App() {
             path="/users/register/"
             element={<Register setLoggedUser={setLoggedUser} />}
           />
-          <Route exact path="*" element={<Error404 />} />
+          <Route exact path="*" element={<Error404/>} />
         </Routes>
       </main>
       <Footer />
