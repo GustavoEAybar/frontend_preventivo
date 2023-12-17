@@ -49,11 +49,15 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <img
-                    src="/ApexGym.jpg"
-                    alt="logo de apex"
-                    className="img-fluid rounded float-start w-150 h-auto logo"
-                  />
+                <svg width="150" height="75">
+                <image
+                  href="/images/ApexGym.jpg"
+                  height="75"
+                  width="150"
+                  alt="logo de apex"
+                  className="img-fluid rounded float-start w-150 h-auto logo"
+                />
+              </svg>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -61,7 +65,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
                   <Nav.Link href="/">Inicio</Nav.Link>
                   <Nav.Link href="/contacts">Contactos</Nav.Link>
                   <Nav.Link href="/aboutUs">Nosotros</Nav.Link>
-                  {loggedUser ? (
+                  {loggedUser?.token ? (
                     <NavDropdown title="Edición">
                       <Nav.Link href="/users/table" className="ps-3">
                         Usuarios
@@ -74,7 +78,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
                       </Nav.Link>
                       <NavDropdown.Divider />
                       <NavDropdown.Item
-                        href="#action5"
+                        href="/"
                         className="m-1 ps-3"
                         onClick={logout}
                       >
