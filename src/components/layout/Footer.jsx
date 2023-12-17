@@ -6,79 +6,203 @@ const Footer = () => {
   return (
     <div className="text-light background">
       <Container>
-        <Row >
-          <Col>
-              <p>
-                <strong>Sobre nosotros</strong>
-              </p>
-              <ul>
-                <li>
+        <Row>
+          <Col className="d-flex justify-content-center">
+            <p>
+              <strong>Conocenos</strong>
+            </p>
+            <ul>
+              <li>
                 <Link className="nav-link" to="/">
-                Home
-              </Link>
-                </li>
-                <li>
-                <Link className="nav-link" to="/">
-                sobre nosotros
-              </Link>
-                </li>
-                <li>
-                <Link className="nav-link" to="/">
-                contactanos
-              </Link>
-                </li>
-              </ul>
-            </Col>
-            <Col className="d-flex justify-content-center flex-column m-2 text-center">
-              <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
-              <p className="text-center">
-                <strong>Apex Gym</strong>
-              </p>
-              <p>© 2023. All Rights Reserved.</p>
-            </Col>
-            <Col>
-              <p>
-                <strong>Contacta con nosotros:</strong>
-              </p>
-              <div></div>
-            </Col>
-          </Row>
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-link" to="/aboutUs">
+                  Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-link" to="/contacts">
+                  Contactanos
+                </Link>
+              </li>
+            </ul>
+          </Col>
+          <Col className="d-flex justify-content-center flex-column m-2 text-center">
+            <img
+              src="images/ApexGym.jpg"
+              alt="logo de apex"
+              className="img-fluid rounded float-start logo mx-auto"
+            />
+            <p className="text-center">
+              <strong>Apex Gym</strong>
+            </p>
+            <p>© 2023. All Rights Reserved.</p>
+          </Col>
+          <Col className="d-flex flex-column">
+            <p>
+              <strong>Contactos:</strong>
+            </p>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>FACEBOOK</strong>
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>INSTAGRAM</strong>
+            </a>
+            <a
+              href="https://web.telegram.org/a/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>TELEGRAM</strong>
+            </a>
+            <a
+              href="https://web.whatsapp.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>WHATSAPP</strong>
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>YOUTUBE</strong>
+            </a>
+            <a
+              href="https://www.tiktok.com/es/"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>TIKTOK</strong>
+            </a>
+            <a
+              href="https://twitter.com/?lang=es"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none" }}
+              className="text-light"
+            >
+              <strong>X</strong>
+            </a>
+          </Col>
+        </Row>
       </Container>
-      <div className="d-flex justify-content-center row ">
-      <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
-      <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
-      <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
-      <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
-      <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
-      <img
-                src="/ApexGym.jpg"
-                alt="logo de apex"
-                className="img-fluid rounded float-start logo mx-auto"
-              />
+      <div className="bg-light d-flex justify-content-center">
+        <div className="d-flex align-content-center flex-wrap">
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/thenorthface.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/clumbia.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/fila.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/kapa.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/mj.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/newbalance.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/reebok.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/underarmour.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/umbro.jpg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+          <svg width="100" height="80" className="m-1">
+            <image
+              href="/images/Adidas.jpeg"
+              height="auto"
+              width="100"
+              alt="logo de apex"
+              className="img-fluid rounded float-start"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   );
