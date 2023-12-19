@@ -9,7 +9,7 @@ const Queries = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nombre y apellido</Form.Label>
             <Form.Control
-              type="email"
+              type="string"
               placeholder="Apex Gym"
               maxLength={200}
               minLength={7}
