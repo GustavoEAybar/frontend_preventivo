@@ -69,7 +69,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/">Inicio</Nav.Link>
+                  <Nav.Link to="/">Inicio</Nav.Link>
                   <Nav.Link href="/contacts">Contactos</Nav.Link>
                   <Nav.Link href="/aboutUs">Nosotros</Nav.Link>
                   {loggedUser?.token ? (
