@@ -46,7 +46,7 @@ const ProductDetails = () => {
                         <Card.Subtitle className='mb-2 text-muted'>$ {product.price}</Card.Subtitle>
                         <div>
                             <Link 
-                            to='/products/confirm'
+                            to='/error404'
                             className='btn btn-primary mx-1 text-decoration-none text-center'>Comprar</Link>
                         </div>
                     </Card.Body>

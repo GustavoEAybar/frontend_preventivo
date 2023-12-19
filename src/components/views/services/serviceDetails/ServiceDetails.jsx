@@ -51,7 +51,7 @@ const ServiceDetails = () => {
               </Card.Subtitle>
               <div>
                 <Link
-                  to="/services/ok/"
+                  to="/error404"
                   className="btn btn-primary mx-1 text-decoration-none text-center"
                 >
                   Comprar

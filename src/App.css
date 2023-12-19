@@ -1,25 +1,25 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.babackground{
-  background:#000120 ;
+.babackground {
+  background: #000120;
 }
 
-.backgroundMain{
+.backgroundMain {
+  background: linear-gradient(rgba(5, 7, 12, 0.4), rgba(5, 7, 12, 0.4)),
+    url("../public/images/GYM2.jpg") no-repeat center center fixed;
   min-height: 100vh;
-  background: url('../public/images/GYM2.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
-.backgroundButton{
+.backgroundButton {
   background: rgb(253, 238, 33);
 }
 
-.carrusel{
+.carrusel {
   margin-top: 10px;
   height: 65vb;
 }
-
