@@ -30,11 +30,15 @@ const Footer = () => {
             </ul>
           </Col>
           <Col className="d-flex justify-content-center flex-column m-2 text-center">
-            <img
-              src="images/ApexGym.jpg"
-              alt="logo de apex"
-              className="img-fluid rounded float-start logo mx-auto"
-            />
+          <svg width="150" height="75">
+                <image
+                  href="/images/ApexGym.jpg"
+                  height="75"
+                  width="150"
+                  alt="logo de apex"
+                  className="img-fluid rounded float-start w-150 h-auto logo"
+                />
+              </svg>
             <p className="text-center">
               <strong>Apex Gym</strong>
             </p>

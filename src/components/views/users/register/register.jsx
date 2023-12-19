@@ -23,7 +23,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
     const newUser = {
       image: inputs.image,
       nameUser: inputs.nameUser,
-      lastNameUser: inputs.lastNameUser,
+      lastnameUser: inputs.lastNameUser,
       email: inputs.email,
       phone: inputs.phone,
       password: inputs.password,
@@ -66,7 +66,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               minLength={1}
               required
               name="image"
-              value={inputs.image || ""}
+              value={inputs.image || "https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg"}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
@@ -92,7 +92,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               maxLength={50}
               minLength={3}
               required
-              name="lastNameUser"
+              name="lastnameUser"
               value={inputs.lastNameUser || ""}
               onChange={(e) => handleChange(e)}
             />
@@ -146,7 +146,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               maxLength={100}
               name="classes"
               required
-              value={inputs.classes || ""}
+              value={inputs.classes || "ninguna"}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
@@ -161,7 +161,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               maxLength={100}
               name="contractedPlan"
               required
-              value={inputs.contractedPlan || ""}
+              value={inputs.contractedPlan || "ninguno"}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
