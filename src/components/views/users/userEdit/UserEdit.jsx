@@ -197,9 +197,9 @@ const UserEdit = ({ getApi }) => {
               }
             >
               <option value={user?.roll}>{user?.roll}</option>
-              <option value="usuario">Usuario</option>
-              <option value="profesor">Profesor</option>
-              <option value="administrador">Administrador</option>
+              <option value="usuario">usuario</option>
+              <option value="profesor">profesor</option>
+              <option value="administrador">administrador</option>
             </Form.Select>
           </Form.Group>
           <div className="text-end">
