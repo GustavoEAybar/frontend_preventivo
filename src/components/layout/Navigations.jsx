@@ -93,7 +93,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
                       </NavDropdown.Item>
                     </NavDropdown>
                   ) : (
-                    <Nav.Link href="/users/login">Iniciar sesion</Nav.Link>
+                    <Nav.Link to="/users/login">Iniciar sesion</Nav.Link>
                   )}
                 </Nav>
               </Offcanvas.Body>
