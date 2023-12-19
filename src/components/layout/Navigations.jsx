@@ -69,9 +69,9 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link to="/">Inicio</Nav.Link>
-                  <Nav.Link to="/contacts">Contactos</Nav.Link>
-                  <Nav.Link to="/aboutUs">Nosotros</Nav.Link>
+                  <Nav.Link href="/">Inicio</Nav.Link>
+                  <Nav.Link href="/contacts">Contactos</Nav.Link>
+                  <Nav.Link href="/aboutUs">Nosotros</Nav.Link>
                   {loggedUser?.token ? (
                     <NavDropdown title="Edición">
                       <Nav.Link href="/users/table" className="ps-3">
@@ -93,7 +93,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
                       </NavDropdown.Item>
                     </NavDropdown>
                   ) : (
-                    <Nav.Link to="/users/login">Iniciar sesion</Nav.Link>
+                    <Nav.Link href="/users/login">Iniciar sesion</Nav.Link>
                   )}
                 </Nav>
               </Offcanvas.Body>
