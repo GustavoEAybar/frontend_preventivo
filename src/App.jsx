@@ -131,7 +131,7 @@ function App() {
           <Route
             exact
             path="/users/register/"
-            element={<Register setLoggedUser={setLoggedUser} />}
+            element={<Register loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}
           />
           <Route path="/error404" element={<Error404/>} />
         </Routes>

@@ -5,12 +5,14 @@ import User from "./User/User";
 import { useEffect } from "react";
 
 const UsersTable = ({ users, getApi }) => {
+  
   useEffect(() => {
     getApi("users");
   }, []);
+
   return (
     <div>
-      <Container className="py-5">
+      <Container className="py-5 text-light">
         <div className="d-flex align--items-center justify-content-between">
           <h1>Lista de usuarios</h1>
           <Link to="/users/register" className="btn btn-primary">

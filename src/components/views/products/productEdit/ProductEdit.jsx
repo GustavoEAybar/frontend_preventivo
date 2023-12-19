@@ -107,7 +107,7 @@ const ProductEdit = ({ getApi }) => {
 
   return (
     <div>
-      <Container className="py-5">
+      <Container className="py-5 text-light">
         <h1>Editar producto</h1>
         <hr />
         <Form className="my-5" onSubmit={handleSubmit}>

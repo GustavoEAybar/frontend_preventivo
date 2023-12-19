@@ -10,7 +10,7 @@ const ProductsTable = ({ products, getApi }) => {
   }, [])
   return (
     <div>
-      <Container className="py-5">
+      <Container className="py-5 text-light">
         <div className="d-flex align--items-center justify-content-between">
           <h1>Lista de productos</h1>
           <Link to="/products/create" className="btn btn-primary">

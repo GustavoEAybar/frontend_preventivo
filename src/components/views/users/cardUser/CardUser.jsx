@@ -8,8 +8,8 @@ const CardUser = ({ users }) => {
         {users?.length !== 0 ? (
           <Row>
             {users?.map((user) => (
-              user.roll !== "usuario" &&
-              <Col xl={3} lg={4} md={6} key={user?._id}>
+              user.roll === "profesor" &&
+              <Col md={12} lg={6} xl={4} key={user?._id}>
                 <Card className="my-4">
                   <img
                     className="img-fluid"
@@ -20,7 +20,7 @@ const CardUser = ({ users }) => {
                   <Card.Body className="backgroundMain text-white">
                     <div className="d-flex align-items-center justifu-content-between mb-2">
                       <Card.Title className="m-0 text-truncate">
-                        {user?.nameuser} + {' '} + {user?.lastNameUser}
+                        {user?.nameuser}
                       </Card.Title>
                     </div>
                     <Card.Text>{user?.description}</Card.Text>

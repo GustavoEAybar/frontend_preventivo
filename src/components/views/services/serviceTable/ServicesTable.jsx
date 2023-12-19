@@ -12,7 +12,7 @@ const ServicesTable = ({ services, getApi }) => {
 
   return (
     <div>
-      <Container className="py-5">
+      <Container className="py-5 text-light">
         <div className="d-flex align--items-center justify-content-between">
           <h1>Lista de servicios</h1>
           <Link to="/services/create" className="btn btn-primary">

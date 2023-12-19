@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   Container,
   Nav,
@@ -8,14 +9,20 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./logo.css";
 import CarouselHome from "../views/Home/carouselHome/CarouselHome";
+import { useEffect } from "react";
+
 
 const Navigations = ({ loggedUser, setLoggedUser }) => {
   const navigate = useNavigate();
   const logout = () => {
-    localStorage.removeItem("user-tokem");
+    localStorage.removeItem("user-token");
     setLoggedUser({});
     navigate("/");
   };
+
+  useEffect(()=>{
+    setLoggedUser(JSON.parse(localStorage.getItem("user-token")));
+  },[]);
 
   return (
     <div className="bg-dark">

@@ -5,7 +5,7 @@ import { STATUS } from "../../../../constants/index";
 import Swal from "sweetalert2";
 import axios from "../../../../config/axiosInit";
 
-const Register = ({ setLoggedUser }) => {
+const Register = ({ loggedUser, setLoggedUser }) => {
   const [inputs, setInputs] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -52,10 +52,11 @@ const Register = ({ setLoggedUser }) => {
   };
   return (
     <div>
-      <Container className="py-5">
+      <Container className="py-5 text-light">
         <h1>Registro</h1>
         <hr />
         <Form className="my-5" onSubmit={handleSubmit}>
+        {loggedUser?.token &&
           <Form.Group className="mb-3" controlId="formBasicImage">
             <Form.Label>Foto de perfil</Form.Label>
             <Form.Control
@@ -69,6 +70,7 @@ const Register = ({ setLoggedUser }) => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
+          }
           <Form.Group className="mb-3" controlId="formBasicNameUser">
             <Form.Label>Nombre</Form.Label>
             <Form.Control
@@ -134,6 +136,7 @@ const Register = ({ setLoggedUser }) => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
+          {loggedUser?.token &&
           <Form.Group className="mb-3" controlId="formBasicClasses">
             <Form.Label>Clases</Form.Label>
             <Form.Control
@@ -147,6 +150,8 @@ const Register = ({ setLoggedUser }) => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
+        }
+        {loggedUser?.token &&
           <Form.Group className="mb-3" controlId="formBasicContractedPlan">
             <Form.Label>Plan/es contratado/s</Form.Label>
             <Form.Control
@@ -160,21 +165,24 @@ const Register = ({ setLoggedUser }) => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
+        }
+          {loggedUser?.token &&
           <Form.Group className="mb-3 w-100">
             <Form.Label>Roll: </Form.Label>
             <Form.Select
               name="roll"
               onChange={(e) => handleChange(e)}
-              value={inputs.roll || ""}
+              value={inputs.roll || "usuario"}
             >
               <option>Usuario</option>
               <option>Profesor</option>
               <option>Administrador</option>
             </Form.Select>
           </Form.Group>
+          }
           <Button
             variant="dark"
-            className="text-white w-50 mt-auto mb-3"
+            className="text-white w-50 mt-auto mb-5"
             type="submit"
           >
             <strong>Registrar</strong>

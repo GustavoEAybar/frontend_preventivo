@@ -7,7 +7,7 @@ const CardService = ({ services }) => {
       {services?.length !== 0 ? (
         <Row>
           {services?.map((service) => (
-            <Col xl={3} lg={4} md={6} key={service?._id}>
+            <Col md={12} lg={6} xl={4} key={service?._id}>
               <Card className="my-4">
                 <img
                   className="img-fluid"
