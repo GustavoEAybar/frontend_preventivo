@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { STATUS } from "../../../../constants/index";
@@ -10,6 +10,10 @@ const Register = ({ loggedUser, setLoggedUser }) => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const URL = process.env.REACT_APP_Apex_Gym;
+  const [image] = useState("https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg")
+  const [classes] = useState('ninguna')
+  const [contractedPlan] = useState('ninguno')
+  const [roll] = useState('usuario')
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -21,18 +25,18 @@ const Register = ({ loggedUser, setLoggedUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
-      image: inputs.image,
+      image: inputs.image || image,
       nameUser: inputs.nameUser,
-      lastnameUser: inputs.lastNameUser,
+      lastnameUser: inputs.lastnameUser,
       email: inputs.email,
       phone: inputs.phone,
       password: inputs.password,
-      classes: inputs.classes,
-      contractedPlan: inputs.contractedPlan,
-      roll: inputs.roll,
+      classes: inputs.classes || classes,
+      contractedPlan: inputs.contractedPlan || contractedPlan,
+      roll: inputs.roll || roll,
     };
     try {
-      const res = await axios.post(`${URL}/users/register`, newUser);
+      const res = await axios.post(`${URL}/users/register/`, newUser);
       if (res.status === STATUS.CREATED) {
         Swal.fire(
           "Registrado!",
@@ -64,9 +68,9 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               placeholder="Foto de perfil"
               maxLength={200}
               minLength={1}
-              required
+              // required
               name="image"
-              value={inputs.image || "https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg"}
+              value={inputs.image || ""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
@@ -93,7 +97,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               minLength={3}
               required
               name="lastnameUser"
-              value={inputs.lastNameUser || ""}
+              value={inputs.lastnameUser || ""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
@@ -145,8 +149,8 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               minLength={4}
               maxLength={100}
               name="classes"
-              required
-              value={inputs.classes || "ninguna"}
+              // required
+              value={inputs.classes || ""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
@@ -160,8 +164,8 @@ const Register = ({ loggedUser, setLoggedUser }) => {
               minLength={4}
               maxLength={100}
               name="contractedPlan"
-              required
-              value={inputs.contractedPlan || "ninguno"}
+              // required
+              value={inputs.contractedPlan || ""}
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
@@ -172,7 +176,7 @@ const Register = ({ loggedUser, setLoggedUser }) => {
             <Form.Select
               name="roll"
               onChange={(e) => handleChange(e)}
-              value={inputs.roll || "usuario"}
+              value={inputs.roll || ""}
             >
               <option>Usuario</option>
               <option>Profesor</option>
