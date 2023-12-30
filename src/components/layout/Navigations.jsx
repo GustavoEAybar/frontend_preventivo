@@ -34,10 +34,10 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
           data-bs-theme="dark"
         >
           <Container fluid>
-            <Navbar.Brand href="/">
+            <Navbar.Brand to="/">
               <svg width="150" height="75">
                 <image
-                  href="/images/ApexGym.jpg"
+                  to="/images/ApexGym.jpg"
                   height="75"
                   width="150"
                   alt="logo de apex"
@@ -68,18 +68,18 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Link href="/">Inicio</Link>
-                  <Link href="/contacts">Contactos</Link>
-                  <Link href="/aboutUs">Nosotros</Link>
+                  <Link to="/">Inicio</Link>
+                  <Link to="/contacts">Contactos</Link>
+                  <Link to="/aboutUs">Nosotros</Link>
                   {loggedUser?.token ? (
                     <NavDropdown title="Edición">
-                      <Link href="/users/table" className="ps-3">
+                      <Link to="/users/table" className="ps-3">
                         Usuarios
                       </Link>
-                      <Link href="/products/table" className="ps-3">
+                      <Link to="/products/table" className="ps-3">
                         Productos
                       </Link>
-                      <Link href="/services/table" className="ps-3">
+                      <Link to="/services/table" className="ps-3">
                         Servicios
                       </Link>
                       <NavDropdown.Divider />
@@ -92,7 +92,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
                       </NavDropdown.Item>
                     </NavDropdown>
                   ) : (
-                    <Link href="/users/login">Iniciar sesion</Link>
+                    <Link to="/users/login">Iniciar sesion</Link>
                   )}
                 </Nav>
               </Offcanvas.Body>
