@@ -133,8 +133,7 @@ function App() {
             path="/users/register/"
             element={<Register loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}
           />
-          {/* <Route path="/error404" element={<Error404/>} /> */}
-          <Route path="*" element={<Error404/>} />
+          <Route exact path="*" element={<Error404/>} />
         </Routes>
       </main>
       <Footer />

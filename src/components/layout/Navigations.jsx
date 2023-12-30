@@ -6,11 +6,10 @@ import {
   Navbar,
   Offcanvas,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./logo.css";
 import CarouselHome from "../views/Home/carouselHome/CarouselHome";
-import { useEffect } from "react";
-
+// import { useEffect } from "react";
 
 const Navigations = ({ loggedUser, setLoggedUser }) => {
   const navigate = useNavigate();
@@ -20,9 +19,9 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
     navigate("/");
   };
 
-  useEffect(()=>{
-    setLoggedUser(JSON.parse(localStorage.getItem("user-token")));
-  },[]);
+  // useEffect(() => {
+  //   setLoggedUser(JSON.parse(localStorage.getItem("user-token")));
+  // }, []);
 
   return (
     <div className="bg-dark">
@@ -56,33 +55,33 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                <svg width="150" height="75">
-                <image
-                  href="/images/ApexGym.jpg"
-                  height="75"
-                  width="150"
-                  alt="logo de apex"
-                  className="img-fluid rounded float-start w-150 h-auto logo"
-                />
-              </svg>
+                  <svg width="150" height="75">
+                    <image
+                      href="/images/ApexGym.jpg"
+                      height="75"
+                      width="150"
+                      alt="logo de apex"
+                      className="img-fluid rounded float-start w-150 h-auto logo"
+                    />
+                  </svg>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/">Inicio</Nav.Link>
-                  <Nav.Link href="/contacts">Contactos</Nav.Link>
-                  <Nav.Link href="/aboutUs">Nosotros</Nav.Link>
+                  <Link href="/">Inicio</Link>
+                  <Link href="/contacts">Contactos</Link>
+                  <Link href="/aboutUs">Nosotros</Link>
                   {loggedUser?.token ? (
                     <NavDropdown title="Edición">
-                      <Nav.Link href="/users/table" className="ps-3">
+                      <Link href="/users/table" className="ps-3">
                         Usuarios
-                      </Nav.Link>
-                      <Nav.Link href="/products/table" className="ps-3">
+                      </Link>
+                      <Link href="/products/table" className="ps-3">
                         Productos
-                      </Nav.Link>
-                      <Nav.Link href="/services/table" className="ps-3">
+                      </Link>
+                      <Link href="/services/table" className="ps-3">
                         Servicios
-                      </Nav.Link>
+                      </Link>
                       <NavDropdown.Divider />
                       <NavDropdown.Item
                         href="/"
@@ -93,7 +92,7 @@ const Navigations = ({ loggedUser, setLoggedUser }) => {
                       </NavDropdown.Item>
                     </NavDropdown>
                   ) : (
-                    <Nav.Link href="/users/login">Iniciar sesion</Nav.Link>
+                    <Link href="/users/login">Iniciar sesion</Link>
                   )}
                 </Nav>
               </Offcanvas.Body>
